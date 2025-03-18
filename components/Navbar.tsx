@@ -7,7 +7,7 @@ import LogoIcon from "./icons/LogoIcon";
 
 export default function Navbar() {
   return (
-    <div className="quickbar-inner sticky top-0 left-0 right-0 z-50 flex justify-between items-center p-4 bg-white ">
+    <div className="sticky top-0 left-0 right-0 z-50 flex justify-between items-center p-4 bg-white ">
       <div>
         <Link href="#home" className="logo">
           <LogoIcon />
