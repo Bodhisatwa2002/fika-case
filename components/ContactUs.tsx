@@ -4,7 +4,7 @@ import { useState } from "react";
 import { BookOpen } from "lucide-react";
 import LogoIcon from "./icons/LogoIcon";
 
-export default function ContactUs() {
+export default function ContactUsSection() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,7 +26,7 @@ export default function ContactUs() {
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-24">
           <div className="flex items-center lg:mb-0 mb-10">
             <div className="w-full">
-              <h4 className="text-indigo-600 text-base font-medium leading-6 mb-4 lg:text-left text-center">
+              <h4 className="inline-block py-1 px-3 mb-4 text-lg font-semibold text-orange-900 bg-orange-50 rounded-full">
                 Contact Us
               </h4>
               <h2 className="text-gray-900 font-manrope text-4xl font-semibold leading-10 mb-9 lg:text-left text-center">
@@ -35,7 +35,7 @@ export default function ContactUs() {
               <form onSubmit={handleSubmit}>
                 <input
                   type="text"
-                  className="w-full h-14 shadow-sm text-gray-600 placeholder-gray-400 text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 py-2 px-4 mb-8"
+                  className="w-full h-14 shadow-sm text-gray-600 placeholder-gray-400 text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
                   placeholder="Name (First and Last)"
                   required
                   value={formData.name}
@@ -45,7 +45,7 @@ export default function ContactUs() {
                 />
                 <input
                   type="email"
-                  className="w-full h-14 shadow-sm text-gray-600 placeholder-gray-400 text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 py-2 px-4 mb-8"
+                  className="w-full h-14 shadow-sm text-gray-600 placeholder-gray-400 text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
                   placeholder="Email Address (Required)"
                   required
                   value={formData.email}
@@ -55,7 +55,7 @@ export default function ContactUs() {
                 />
                 <input
                   type="tel"
-                  className="w-full h-14 shadow-sm text-gray-600 placeholder-gray-400 text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 py-2 px-4 mb-8"
+                  className="w-full h-14 shadow-sm text-gray-600 placeholder-gray-400 text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
                   placeholder="Phone Number (Required)"
                   required
                   value={formData.phone}
@@ -65,7 +65,7 @@ export default function ContactUs() {
                 />
                 <input
                   type="text"
-                  className="w-full h-14 shadow-sm text-gray-600 placeholder-gray-400 text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 py-2 px-4 mb-8"
+                  className="w-full h-14 shadow-sm text-gray-600 placeholder-gray-400 text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
                   placeholder="School/Organization Name (Optional)"
                   value={formData.organization}
                   onChange={(e) =>
@@ -74,7 +74,7 @@ export default function ContactUs() {
                 />
                 <input
                   type="text"
-                  className="w-full h-14 shadow-sm text-gray-600 placeholder-gray-400 text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 py-2 px-4 mb-8"
+                  className="w-full h-14 shadow-sm text-gray-600 placeholder-gray-400 text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
                   placeholder="Your Role (Required)"
                   required
                   value={formData.role}
@@ -83,7 +83,7 @@ export default function ContactUs() {
                   }
                 />
                 <textarea
-                  className="w-full h-48 shadow-sm resize-none text-gray-600 placeholder-gray-400 text-lg font-normal leading-7 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 px-4 py-4 mb-8"
+                  className="w-full h-48 shadow-sm resize-none text-gray-600 placeholder-gray-400 text-lg font-normal leading-7 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 px-4 py-4 mb-8"
                   placeholder="Message/Questions"
                   value={formData.message}
                   onChange={(e) =>
@@ -99,7 +99,7 @@ export default function ContactUs() {
           <div className="lg:max-w-xl w-full h-[600px] flex items-center justify-center rounded-2xl p-8">
             <div className="w-full max-w-md bg-white shadow-xl p-8 rounded-xl">
               <div className="flex items-center justify-center mb-6">
-                <LogoIcon/>
+                <LogoIcon />
               </div>
               <h3 className="text-2xl font-semibold text-center mb-6">
                 Join Our Community

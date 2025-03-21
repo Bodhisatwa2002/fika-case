@@ -93,10 +93,10 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ className = "" }) => {
       >
         <div className="flex flex-col h-full p-4 sm:p-8 overflow-y-auto">
           {/* Close Button */}
-          <div className="flex justify-start mb-8 sm:mb-16">
+          <div className="flex justify-start mb-8 sm:mb-16 ">
             <button
               onClick={() => setIsOpen(false)}
-              className="close-button flex items-center space-x-2 text-gray-800"
+              className="close-button flex items-center space-x-2 text-gray-800 cursor-pointer"
               aria-label="Close menu"
             >
               <span className="uppercase text-sm tracking-widest">Close</span>
@@ -106,33 +106,47 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ className = "" }) => {
 
           {/* Brand Name */}
           <div className="mb-12 sm:mb-20">
-            <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 mb-2">
-              Fika
-            </h1>
-            <h2 className="text-4xl sm:text-6xl font-light text-indigo-400">
-              Case
-            </h2>
+            <a href="/">
+              <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 mb-2">
+                Fika
+              </h1>
+              <h2 className="text-4xl sm:text-6xl font-light text-indigo-400">
+                Case
+              </h2>
+            </a>
           </div>
 
           {/* Menu Links */}
           <div className="mb-12 sm:mb-20 space-y-4 sm:space-y-6">
             <a
-              href="#"
+              href="/about-us"
               className="menu-link block text-base sm:text-lg uppercase tracking-widest text-gray-800 hover:text-indigo-600 transition-colors"
             >
-              Twitter
+              About Us
+            </a>
+            <a
+              href="/how-it-works"
+              className="menu-link block text-base sm:text-lg uppercase tracking-widest text-gray-800 hover:text-indigo-600 transition-colors"
+            >
+              How It Works
             </a>
             <a
               href="#"
               className="menu-link block text-base sm:text-lg uppercase tracking-widest text-gray-800 hover:text-indigo-600 transition-colors"
             >
-              LinkedIn
+              Why It Matters
             </a>
             <a
-              href="#"
+              href="/faq"
               className="menu-link block text-base sm:text-lg uppercase tracking-widest text-gray-800 hover:text-indigo-600 transition-colors"
             >
-              Email
+              Frequently Asked Questions
+            </a>
+            <a
+              href="/contact-us"
+              className="menu-link block text-base sm:text-lg uppercase tracking-widest text-gray-800 hover:text-indigo-600 transition-colors"
+            >
+              Contact Us
             </a>
           </div>
         </div>

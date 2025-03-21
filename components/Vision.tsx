@@ -5,32 +5,42 @@ import Mountain from "@/components/Mountain";
 const Vision: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setWindowHeight(window.innerHeight);
 
     const handleScroll = () => {
-      if (containerRef.current) {
+      if (containerRef.current && !isMobile) {
         setScrollY(window.scrollY);
       }
     };
 
     const handleResize = () => {
       setWindowHeight(window.innerHeight);
+      setIsMobile(window.innerWidth < 640); // sm breakpoint in Tailwind
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Initial check
+    handleResize();
+
+    // Skip scroll events on mobile to save performance
+    if (!isMobile) {
+      window.addEventListener("scroll", handleScroll, { passive: true });
+    }
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [isMobile]);
 
-  // Calculate mountain slide transforms based on scroll position
+  // Calculate mountain slide transforms based on scroll position (only for non-mobile)
   const calculateLeftTransform = () => {
+    if (isMobile) return {}; // Return empty object for mobile
+
     const scrollProgress = Math.min(scrollY / windowHeight, 1);
     const translateX = -30 * scrollProgress;
     const rotateY = 15 * scrollProgress;
@@ -38,6 +48,8 @@ const Vision: React.FC = () => {
   };
 
   const calculateRightTransform = () => {
+    if (isMobile) return {}; // Return empty object for mobile
+
     const scrollProgress = Math.min(scrollY / windowHeight, 1);
     const translateX = 30 * scrollProgress;
     const rotateY = -15 * scrollProgress;
@@ -48,15 +60,15 @@ const Vision: React.FC = () => {
     <div ref={containerRef} className="parallax-content relative h-full">
       <div className="sticky top-0 h-screen w-full perspective overflow-hidden">
         {/* Hero content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 px-4">
-          <div className="relative text-center max-w-3xl mx-auto">
-            <h1 className="text-5xl sm:text-5xl font-bold mb-4 tracking-tight text-black">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 px-4 overflow-y-auto">
+          <div className="relative text-center max-w-3xl mx-auto py-8 sm:py-0">
+            <h1 className="text-3xl sm:text-5xl font-bold mb-4 tracking-tight text-black">
               Phones do not belong in the classrooms.
-              <span className="block italic font-medium text-black">
+              <span className="block italic font-medium text-black mt-2">
                 But banning them is not the solution.
               </span>
             </h1>
-            <p className="text-lg mt-8 text-black">
+            <p className="text-base sm:text-lg mt-6 text-black">
               According to a 2024 Pew Research study, 72% of high school
               teachers say cell phone distraction is a major problem in the
               classroom. But banning phones is simply not enough, because they
@@ -64,17 +76,17 @@ const Vision: React.FC = () => {
               content, and act as a critical communication tool to parents for
               student safety.
             </p>
-            <p className="text-lg mt-6 text-black">
+            <p className="text-base sm:text-lg mt-4 sm:mt-6 text-black">
               Schools around the world are taking action to enable responsible
               phone usage policies that enable growth in increasing digital
               environments while ensuring distraction-free learning
             </p>
           </div>
-          <div className="">
+          <div className="mb-8 sm:mb-0">
             <a
               href="#"
               title=""
-              className="inline-flex items-center px-6 py-4 font-semibold text-black transition-all duration-200 bg-[#FF9900] rounded-full mt-6 hover:bg-[#ff9900cd] focus:bg-yellow-400"
+              className="inline-flex items-center px-4 sm:px-6 py-3 sm:py-4 font-semibold text-black transition-all duration-200 bg-[#FF9900] rounded-full mt-4 sm:mt-6 hover:bg-[#ff9900cd] focus:bg-yellow-400"
               role="button"
             >
               Dive into Research
@@ -83,7 +95,11 @@ const Vision: React.FC = () => {
         </div>
 
         {/* Mountains container with 3D perspective */}
-        <div className="mountain-container perspective preserve-3d">
+        <div
+          className={`mountain-container ${
+            !isMobile ? "perspective preserve-3d" : ""
+          }`}
+        >
           {/* Left mountain */}
           <Mountain
             side="left"
