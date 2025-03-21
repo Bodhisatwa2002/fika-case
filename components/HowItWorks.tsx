@@ -10,7 +10,7 @@ const processSteps = [
     description:
       "Upon entering the phone-free zone, your phone will be placed inside your Fika case",
     image:
-      "https://www.fewandfar.co.uk/assets/process/process-learn.png/4519555ee679ac995d2b29f5976c8b10.webp",
+      "https://images.unsplash.com/photo-1533994966954-5a39c74889a4?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     alt: "Phone placement in Fika case",
   },
   {
@@ -19,7 +19,7 @@ const processSteps = [
     description:
       "Once inside the phone-free zone, the case is locked. You will always maintain possession of your phone. ",
     image:
-      "https://www.fewandfar.co.uk/assets/process/process-challenge.png/4519555ee679ac995d2b29f5976c8b10.webp",
+      "https://images.unsplash.com/photo-1533994966954-5a39c74889a4?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     alt: "Secure case locking",
   },
   {
@@ -28,7 +28,7 @@ const processSteps = [
     description:
       "To use your phone at any time, step outside the phone-free zone and tap your case on an Fika unlocking base",
     image:
-      "https://www.fewandfar.co.uk/assets/process/process-plan.png/4519555ee679ac995d2b29f5976c8b10.webp",
+      "https://images.unsplash.com/photo-1533994966954-5a39c74889a4?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     alt: "Unlocking the Fika case",
   },
 ];

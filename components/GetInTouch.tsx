@@ -34,7 +34,7 @@ const GetInTouch = () => {
     >
       <div className="max-w-2xl mx-auto px-4">
         <h2
-          className={`text-5xl font-bold mb-4 text-black transition-all duration-1000 ease-in-out ${
+          className={`sm:text-4xl text-3xl font-bold mb-4 text-black transition-all duration-1000 ease-in-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
@@ -60,7 +60,7 @@ const GetInTouch = () => {
           <a
             href="/faq"
             title=""
-            className="inline-flex items-center justify-center w-full sm:w-auto px-6 py-4 font-semibold text-black transition-all duration-200 bg-[#FF9900] rounded-full hover:bg-[#ff9900cd] focus:bg-yellow-400"
+            className="inline-flex items-center justify-center w-full sm:w-auto px-6 py-4 font-semibold text-black transition-all duration-200 bg-[#FF9900] rounded-full hover:bg-[#ff9900cd] focus:bg-yellow-400 cursor-pointer"
             role="button"
           >
             Read The FAQ's
@@ -68,7 +68,7 @@ const GetInTouch = () => {
           <a
             href="/contact-us"
             title=""
-            className="inline-flex items-center justify-center w-full sm:w-auto px-6 py-4 font-semibold text-black transition-all duration-200 bg-[#FF9900] rounded-full hover:bg-[#ff9900cd] focus:bg-yellow-400"
+            className="inline-flex items-center justify-center w-full sm:w-auto px-6 py-4 font-semibold text-black transition-all duration-200 bg-[#FF9900] rounded-full hover:bg-[#ff9900cd] focus:bg-yellow-400 cursor-pointer"
             role="button"
           >
             Get in Touch

@@ -74,6 +74,7 @@ const Vision: React.FC = () => {
   return (
     <div ref={containerRef} className="parallax-content relative h-full">
       <div className="sticky top-0 h-screen w-full perspective overflow-hidden">
+        
         {/* Hero content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 px-4 overflow-y-auto">
           <div

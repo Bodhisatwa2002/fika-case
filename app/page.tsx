@@ -1,7 +1,6 @@
 import Footer from "@/components/Footer";
 import GetInTouch from "@/components/GetInTouch";
 import HeroSection from "@/components/HeroSection";
-import { HowItWorksComponent } from "@/components/HowItWorks";
 import Navbar from "@/components/Navbar";
 import ProductSpec from "@/components/ProductSpec";
 import Vision from "@/components/Vision";
