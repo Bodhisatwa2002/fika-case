@@ -4,12 +4,12 @@ const GetInTouch = () => {
   return (
     <div className="w-full bg-white py-20 flex flex-col items-center justify-center text-center">
       <div className="max-w-2xl mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-4 text-black">
+        <h2 className="text-5xl font-bold mb-4 text-black">
           We can help you transform your school into a distraction-free learning
           zone.
         </h2>
 
-        <p className="text-lg text-gray-700 mb-8">
+        <p className="text-2xl text-gray-700 mb-8">
           Have questions? Want to share your thoughts? Talk to us
         </p>
 
