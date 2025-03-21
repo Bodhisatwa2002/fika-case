@@ -35,14 +35,14 @@ export default function Navbar() {
         </Link>
       </div>
       <div>
-        <div className="menu relative">
+        <div className=" relative">
           {/* Desktop Navigation */}
-          <ul className="desktop-nav hidden md:flex space-x-6 items-center">
+          <ul className="desktop-nav hidden md:flex space-x-8 items-center">
             <li>
               <Link
                 href="/about-us"
                 title="Go to About Us"
-                className="group relative overflow-hidden block"
+                className="group relative overflow-hidden block font-extrabold font-stretch-condensed text-lg"
               >
                 <span className="flex transition-transform duration-300 transform group-hover:-translate-y-full">
                   <span>A</span>
@@ -70,7 +70,7 @@ export default function Navbar() {
               <Link
                 href="/how-it-works"
                 title="Go to How it Works"
-                className="group relative overflow-hidden block"
+                className="group relative overflow-hidden block font-extrabold font-stretch-condensed text-lg"
               >
                 <span className="flex transition-transform duration-300 transform group-hover:-translate-y-full">
                   <span>H</span>
@@ -106,7 +106,7 @@ export default function Navbar() {
               <Link
                 href="/why-it-matters"
                 title="Go to Why It Matters"
-                className="group relative overflow-hidden block"
+                className="group relative overflow-hidden block font-extrabold font-stretch-condensed text-lg"
               >
                 <span className="flex transition-transform duration-300 transform group-hover:-translate-y-full">
                   <span>W</span>

@@ -6,7 +6,9 @@ const Vision: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const textContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setWindowHeight(window.innerHeight);
@@ -19,27 +21,40 @@ const Vision: React.FC = () => {
 
     const handleResize = () => {
       setWindowHeight(window.innerHeight);
-      setIsMobile(window.innerWidth < 640); // sm breakpoint in Tailwind
+      setIsMobile(window.innerWidth < 640); 
     };
 
-    // Initial check
     handleResize();
 
-    // Skip scroll events on mobile to save performance
     if (!isMobile) {
       window.addEventListener("scroll", handleScroll, { passive: true });
     }
     window.addEventListener("resize", handleResize);
 
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 } 
+    );
+
+    if (textContentRef.current) {
+      observer.observe(textContentRef.current);
+    }
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
+      if (textContentRef.current) {
+        observer.unobserve(textContentRef.current);
+      }
     };
   }, [isMobile]);
 
-  // Calculate mountain slide transforms based on scroll position (only for non-mobile)
   const calculateLeftTransform = () => {
-    if (isMobile) return {}; // Return empty object for mobile
+    if (isMobile) return {}; 
 
     const scrollProgress = Math.min(scrollY / windowHeight, 1);
     const translateX = -30 * scrollProgress;
@@ -48,7 +63,7 @@ const Vision: React.FC = () => {
   };
 
   const calculateRightTransform = () => {
-    if (isMobile) return {}; // Return empty object for mobile
+    if (isMobile) return {}; 
 
     const scrollProgress = Math.min(scrollY / windowHeight, 1);
     const translateX = 30 * scrollProgress;
@@ -61,7 +76,12 @@ const Vision: React.FC = () => {
       <div className="sticky top-0 h-screen w-full perspective overflow-hidden">
         {/* Hero content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 px-4 overflow-y-auto">
-          <div className="relative text-center max-w-3xl mx-auto py-8 sm:py-0">
+          <div
+            ref={textContentRef}
+            className={`relative text-center max-w-3xl mx-auto py-8 sm:py-0 transition-opacity duration-1000 ease-in-out ${
+              isVisible ? "opacity-100" : "opacity-0"
+            }`}
+          >
             <h1 className="text-3xl sm:text-5xl font-bold mb-4 tracking-tight text-black">
               Phones do not belong in the classrooms.
               <span className="block italic font-medium text-black mt-2">
@@ -82,7 +102,11 @@ const Vision: React.FC = () => {
               environments while ensuring distraction-free learning
             </p>
           </div>
-          <div className="mb-8 sm:mb-0">
+          <div
+            className={`mb-8 sm:mb-0 transition-opacity duration-1000 ease-in-out delay-300 ${
+              isVisible ? "opacity-100" : "opacity-0"
+            }`}
+          >
             <a
               href="#"
               title=""

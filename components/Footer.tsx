@@ -8,7 +8,6 @@ const Footer = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle email submission here
     console.log("Email submitted:", email);
     setEmail("");
   };

@@ -36,21 +36,18 @@ const processSteps = [
 export function HowItWorksComponent() {
   const dotsRef = useRef<SVGSVGElement>(null);
 
-  // Create staggered animation effect for dots
   useEffect(() => {
     if (!dotsRef.current) return;
 
     const circles = dotsRef.current.querySelectorAll("circle");
 
     circles.forEach((circle, index) => {
-      // Using setAttribute instead of style property for TypeScript compatibility
       circle.setAttribute("style", `animation-delay: ${(index % 16) * 0.1}s`);
     });
 
     const circles2 = dotsRef.current.querySelectorAll('circle[data-wave="2"]');
 
     circles2.forEach((circle, index) => {
-      // Using setAttribute instead of style property for TypeScript compatibility
       circle.setAttribute("style", `animation-delay: ${(index % 12) * 0.15}s`);
     });
   }, []);
