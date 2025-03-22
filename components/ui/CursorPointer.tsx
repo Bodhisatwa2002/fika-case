@@ -75,7 +75,7 @@ export function CustomCursor() {
       >
         {/* Outer ring */}
         <motion.div
-          className="relative h-8 w-8 rounded-full"
+          className="relative h-4 w-4 rounded-full"
           animate={{
             scale: isPointer ? 1.2 : isClicking ? 0.8 : 1,
             borderWidth: isPointer ? 1.5 : 1,

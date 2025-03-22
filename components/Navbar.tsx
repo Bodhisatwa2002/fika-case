@@ -1,8 +1,9 @@
-"use client"
+'use client'
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import  Link  from "next/link";
 import BurgerMenu from "./BurgerMenu";
 import LogoIcon from "./icons/LogoIcon";
+import AnimatedLink from "@/components/ui/AnimatedLink";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,112 +36,17 @@ export default function Navbar() {
         </Link>
       </div>
       <div>
-        <div className=" relative">
+        <div className="relative">
           {/* Desktop Navigation */}
           <ul className="desktop-nav hidden md:flex space-x-8 items-center">
             <li>
-              <Link
-                href="/about-us"
-                title="Go to About Us"
-                className="group relative overflow-hidden block font-extrabold font-stretch-condensed text-lg"
-              >
-                <span className="flex transition-transform duration-300 transform group-hover:-translate-y-full">
-                  <span>A</span>
-                  <span>b</span>
-                  <span>o</span>
-                  <span>u</span>
-                  <span>t</span>
-                  <span>&nbsp;</span>
-                  <span>U</span>
-                  <span>s</span>
-                </span>
-                <span className="flex text-amber-600 absolute top-full left-0 transition-transform duration-300 transform group-hover:-translate-y-full">
-                  <span>A</span>
-                  <span>b</span>
-                  <span>o</span>
-                  <span>u</span>
-                  <span>t</span>
-                  <span>&nbsp;</span>
-                  <span>U</span>
-                  <span>s</span>
-                </span>
-              </Link>
+              <AnimatedLink to="/about-us" text="About Us" />
             </li>
             <li>
-              <Link
-                href="/how-it-works"
-                title="Go to How it Works"
-                className="group relative overflow-hidden block font-extrabold font-stretch-condensed text-lg"
-              >
-                <span className="flex transition-transform duration-300 transform group-hover:-translate-y-full">
-                  <span>H</span>
-                  <span>o</span>
-                  <span>w</span>
-                  <span>&nbsp;</span>
-                  <span>I</span>
-                  <span>t</span>
-                  <span>&nbsp;</span>
-                  <span>W</span>
-                  <span>o</span>
-                  <span>r</span>
-                  <span>k</span>
-                  <span>s</span>
-                </span>
-                <span className="flex text-amber-600  absolute top-full left-0 transition-transform duration-300 transform group-hover:-translate-y-full">
-                  <span>H</span>
-                  <span>o</span>
-                  <span>w</span>
-                  <span>&nbsp;</span>
-                  <span>I</span>
-                  <span>t</span>
-                  <span>&nbsp;</span>
-                  <span>W</span>
-                  <span>o</span>
-                  <span>r</span>
-                  <span>k</span>
-                  <span>s</span>
-                </span>
-              </Link>
+              <AnimatedLink to="/how-it-works" text="How It Works" />
             </li>
             <li>
-              <Link
-                href="/why-it-matters"
-                title="Go to Why It Matters"
-                className="group relative overflow-hidden block font-extrabold font-stretch-condensed text-lg"
-              >
-                <span className="flex transition-transform duration-300 transform group-hover:-translate-y-full">
-                  <span>W</span>
-                  <span>h</span>
-                  <span>y</span>
-                  <span>&nbsp;</span>
-                  <span>I</span>
-                  <span>t</span>
-                  <span>&nbsp;</span>
-                  <span>M</span>
-                  <span>a</span>
-                  <span>t</span>
-                  <span>t</span>
-                  <span>e</span>
-                  <span>r</span>
-                  <span>s</span>
-                </span>
-                <span className="flex text-amber-600  absolute top-full left-0 transition-transform duration-300 transform group-hover:-translate-y-full">
-                  <span>W</span>
-                  <span>h</span>
-                  <span>y</span>
-                  <span>&nbsp;</span>
-                  <span>I</span>
-                  <span>t</span>
-                  <span>&nbsp;</span>
-                  <span>M</span>
-                  <span>a</span>
-                  <span>t</span>
-                  <span>t</span>
-                  <span>e</span>
-                  <span>r</span>
-                  <span>s</span>
-                </span>
-              </Link>
+              <AnimatedLink to="/why-it-matters" text="Why It Matters" />
             </li>
             {/* BurgerMenu for Desktop */}
             <li className="hidden md:block">

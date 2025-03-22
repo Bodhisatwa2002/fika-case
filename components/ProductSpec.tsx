@@ -97,20 +97,9 @@ const ProductSpec: React.FC = () => {
               <img
                 src="https://images.unsplash.com/photo-1585060544812-6b45742d762f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
                 alt="Product"
-                className="w-full h-4/5 object-cover rounded-t-3xl"
+                className="w-full h-full object-cover rounded-t-3xl"
               />
-              <div className="p-4">
-                <div className="text-sm text-gray-500 uppercase tracking-wide mb-1">
-                  WE EXAMINE
-                </div>
-                <h3 className="text-lg font-semibold mb-2">
-                  An Educator's ally, the Fika Case provides a simple, yet
-                  powerful solution.
-                </h3>
-                <p className="text-gray-700">
-                  How does the Fika Case transform classroom management?
-                </p>
-              </div>
+              
             </div>
           </div>
 

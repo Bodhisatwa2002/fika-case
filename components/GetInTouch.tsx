@@ -30,7 +30,7 @@ const GetInTouch = () => {
   return (
     <div
       ref={sectionRef}
-      className="w-full bg-white py-20 flex flex-col items-center justify-center text-center"
+      className="w-full bg-white py-10 flex flex-col items-center justify-center text-center"
     >
       <div className="max-w-2xl mx-auto px-4">
         <h2
