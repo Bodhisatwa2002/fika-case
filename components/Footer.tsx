@@ -13,16 +13,15 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-white border-t">
+    <footer className="bg-black border-t border-amber-500">
       <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
           {/* Logo and Copyright Section */}
           <div className="flex flex-col items-start">
             <div className="flex items-center">
-              <LogoIcon className="h-8 w-8 text-gray-900" />
-              <span className="ml-2 text-xl font-semibold">Fika Case</span>
+              <img src="logo.png" alt="Logo" className="h-8 w-auto" />
             </div>
-            <p className="text-sm text-gray-600 mt-2">
+            <p className="text-sm text-white mt-2">
               Copyright © 2025 Fika Case. Patent Pending.
             </p>
           </div>

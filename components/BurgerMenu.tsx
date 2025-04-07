@@ -107,47 +107,51 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ className = "" }) => {
           {/* Brand Name */}
           <div className="mb-12 sm:mb-20">
             <a href="/">
-              <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 mb-2">
-                Fika
-              </h1>
-              <h2 className="text-4xl sm:text-6xl font-light text-indigo-400">
-                Case
-              </h2>
+              <img src="logoblack.png" alt="Logo" className="h-20 w-auto" />
             </a>
           </div>
 
-          {/* Menu Links */}
-          <div className="mb-12 sm:mb-20 space-y-4 sm:space-y-6">
-            <a
-              href="/about-us"
-              className="menu-link block text-base sm:text-lg uppercase tracking-widest text-gray-800 hover:text-indigo-600 transition-colors"
-            >
-              About Us
-            </a>
-            <a
-              href="/how-it-works"
-              className="menu-link block text-base sm:text-lg uppercase tracking-widest text-gray-800 hover:text-indigo-600 transition-colors"
-            >
-              How It Works
-            </a>
-            <a
-              href="#"
-              className="menu-link block text-base sm:text-lg uppercase tracking-widest text-gray-800 hover:text-indigo-600 transition-colors"
-            >
-              Why It Matters
-            </a>
-            <a
-              href="/faq"
-              className="menu-link block text-base sm:text-lg uppercase tracking-widest text-gray-800 hover:text-indigo-600 transition-colors"
-            >
-              Frequently Asked Questions
-            </a>
-            <a
-              href="/contact-us"
-              className="menu-link block text-base sm:text-lg uppercase tracking-widest text-gray-800 hover:text-indigo-600 transition-colors"
-            >
-              Contact Us
-            </a>
+          {/* Two Column Layout for Menu Links */}
+          <div className="flex flex-row">
+            {/* Left Column */}
+            <div className="flex-1 pr-4">
+              {/* Menu Links */}
+              <div className="space-y-4 sm:space-y-6">
+                <a
+                  href="/about-us"
+                  className="menu-link block text-base sm:text-lg uppercase tracking-widest text-gray-800 hover:text-[#FF9900]  transition-colors"
+                >
+                  About Us
+                </a>
+                <a
+                  href="/how-it-works"
+                  className="menu-link block text-base sm:text-lg uppercase tracking-widest text-gray-800 hover:text-[#FF9900]  transition-colors"
+                >
+                  How It Works
+                </a>
+                <a
+                  href="/why-it-matters"
+                  className="menu-link block text-base sm:text-lg uppercase tracking-widest text-gray-800 hover:text-[#FF9900]  transition-colors"
+                >
+                  Why It Matters
+                </a>
+                <a
+                  href="/faq"
+                  className="menu-link block text-base sm:text-lg uppercase tracking-widest text-gray-800 hover:text-[#FF9900]  transition-colors"
+                >
+                  Frequently Asked Questions
+                </a>
+                <a
+                  href="/contact-us"
+                  className="menu-link block text-base sm:text-lg uppercase tracking-widest text-gray-800 hover:text-[#FF9900]  transition-colors"
+                >
+                  Contact Us
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column - Aligned with left column */}
+            
           </div>
         </div>
       </div>

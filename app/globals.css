@@ -9,7 +9,40 @@
     }
   }
 }
-/* h2 {
-  font-family: var(--font-roboto-condensed), sans-serif;
-} */
+body {
+  font-family: var(--font-poppins), sans-serif;
+}
 
+.glow-text-container {
+  position: relative;
+  font-extrabold: true;
+  font-size: 1.125rem; /* text-lg */
+  display: inline-block;
+}
+
+.glow-text {
+  position: relative;
+  z-index: 1;
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+.glow-text-container:hover .glow-text {
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 15px #ff0000,
+    0 0 20px #ff7300,
+    0 0 25px #fffb00,
+    0 0 30px #48ff00,
+    0 0 35px #00ffd5;
+  animation: text-glow 5s linear infinite;
+}
+
+@keyframes text-glow {
+  0% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff0000, 0 0 20px #ff7300, 0 0 25px #fffb00; }
+  20% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fffb00, 0 0 20px #48ff00, 0 0 25px #00ffd5; }
+  40% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #00ffd5, 0 0 20px #002bff, 0 0 25px #7a00ff; }
+  60% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #7a00ff, 0 0 20px #ff00c8, 0 0 25px #ff0000; }
+  80% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff0000, 0 0 20px #ff7300, 0 0 25px #fffb00; }
+  100% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff0000, 0 0 20px #ff7300, 0 0 25px #fffb00; }
+}

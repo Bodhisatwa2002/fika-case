@@ -7,7 +7,7 @@ import Vision from "@/components/Vision";
 
 export default function Home() {
   return (
-    <div className="pt-16 overflow-hidden">
+    <div className="overflow-hidden">
       <Navbar />
       <HeroSection />
       <Vision />
@@ -17,4 +17,3 @@ export default function Home() {
     </div>
   );
 }
-

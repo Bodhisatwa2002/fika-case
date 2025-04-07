@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useState } from "react";
 
 interface FAQItem {
@@ -43,36 +43,27 @@ const FAQSection: React.FC = () => {
   };
 
   return (
-    <section className="relative py-20 overflow-hidden bg-white">
-      <img
-        className="absolute top-0 left-0 mt-44"
-        src="/saturn-assets/images/faq/light-blue-left.png"
-        alt=""
-      />
-      
+    <section className="relative py-30 overflow-hidden bg-black">
       <div className="relative container px-4 mx-auto">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-24">
-            <span className="inline-block py-1 px-3 mb-4 text-md font-semibold text-orange-900 bg-orange-50 rounded-full">
-              FREQUENTLY ASK QUESTION
-            </span>
-            <h1 className="font-heading text-5xl xs:text-6xl md:text-7xl font-bold text-gray-900">
+            <h1 className="font-heading text-3xl md:text-5xl font-bold text-white">
               <span className="font-serif italic">Looking for Help ?</span>
             </h1>
           </div>
-          <div className="pt-18 sm:pt-24 px-8 sm:px-20 pb-18 bg-gray-50 rounded-4xl shadow-lg">
+          <div className="pt-18 sm:pt-10 px-8 sm:px-20 pb-18 rounded-4xl">
             {faqItems.map((item, index) => (
               <div
                 key={index}
                 onClick={() => toggleAccordion(index)}
                 className={`flex cursor-pointer ${
                   index !== faqItems.length - 1 ? "mb-8 pb-8" : "pb-8"
-                } group w-full items-start justify-between border-b border-gray-100 text-left`}
+                } group w-full items-start justify-between border-b border-[#FF9900] text-left`}
               >
                 <div className="max-w-xl pr-5">
                   <h3
                     className={`text-xl font-semibold ${
-                      openIndex === index ? "text-orange-900" : "text-black"
+                      openIndex === index ? "text-orange-600" : "text-white"
                     }`}
                   >
                     {item.question}
@@ -82,7 +73,7 @@ const FAQSection: React.FC = () => {
                       openIndex === index ? "h-auto mt-3" : "h-0"
                     }`}
                   >
-                    <p className="text-lg text-gray-500">{item.answer}</p>
+                    <p className="text-lg text-gray-300">{item.answer}</p>
                   </div>
                 </div>
                 <div className="pt-1">
@@ -112,7 +103,7 @@ const FAQSection: React.FC = () => {
                       >
                         <path
                           d="M15.4619 7H9.46194V1C9.46194 0.734784 9.35659 0.48043 9.16905 0.292893C8.98151 0.105357 8.72716 0 8.46194 0C8.19673 0 7.94237 0.105357 7.75484 0.292893C7.5673 0.48043 7.46194 0.734784 7.46194 1V7H1.46194C1.19673 7 0.942374 7.10536 0.754838 7.29289C0.567302 7.48043 0.461945 7.73478 0.461945 8C0.461945 8.26522 0.567302 8.51957 0.754838 8.70711C0.942374 8.89464 1.19673 9 1.46194 9H7.46194V15C7.46194 15.2652 7.5673 15.5196 7.75484 15.7071C7.94237 15.8946 8.19673 16 8.46194 16C8.72716 16 8.98151 15.8946 9.16905 15.7071C9.35659 15.5196 9.46194 15.2652 9.46194 15V9H15.4619C15.7272 9 15.9815 8.89464 16.1691 8.70711C16.3566 8.51957 16.4619 8.26522 16.4619 8C16.4619 7.73478 16.3566 7.48043 16.1691 7.29289C15.9815 7.10536 15.7272 7 15.4619 7Z"
-                          fill="black"
+                          fill="white"
                         />
                       </svg>
                     </span>

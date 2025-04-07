@@ -8,34 +8,34 @@ const ProductSpec: React.FC = () => {
   const testimonials = [
     {
       quote:
-        "Peace of mind knowing phones are safely stored, yet easily accessible when needed.",
+        "Peace of mind knowing phones are safely stored, yet easily accessible when needed",
       name: "Secure & Accessible",
       title: "",
     },
     {
       quote:
-        "Durable, water-resistant neoprene construction — lightweight and comfortable.",
+        "Durable, water-resistant neoprene construction — lightweight and comfortable",
       name: "Lightweight & Durable",
       title: "",
     },
     {
       quote:
-        "Retractable pin for added security, preventing injuries while operating the case.",
+        "Retractable pin for added security, preventing injuries while operating the case",
       name: "Safety First",
       title: "",
     },
     {
-      quote: "Blocks distracting signals for truly focused learning.",
+      quote: "Blocks distracting signals for truly focused learning",
       name: "Signal Blocking",
       title: "",
     },
     {
-      quote: "Convenient name tag slot for easy identification.",
+      quote: "Convenient name tag slot for easy identification",
       name: "Easy Identification",
       title: "",
     },
     {
-      quote: "Fits most smartphones, including larger models up to 6.1 inches.",
+      quote: "Fits most smartphones, including larger models up to 6.1 inches",
       name: "Widely Compatible",
       title: "",
     },
@@ -85,36 +85,34 @@ const ProductSpec: React.FC = () => {
   return (
     <div ref={sectionRef} className="bg-white mt-20 mb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <div className="grid grid-cols-1 md:grid-cols-5 md:grid-rows-5 gap-8">
           {/* Left column - Mobile image - Hidden on mobile */}
           <div
-            className={`hidden md:flex md:col-span-2 md:row-span-5 bg-white rounded-3xl shadow-lg p-6 flex-col items-center transition-opacity duration-1000 ease-in-out ${
+            className={`hidden md:flex md:col-span-2 md:row-span-5 bg-white rounded-3xl p-6 flex-col items-center transition-opacity duration-1000 ease-in-out ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >
-            <div className="bg-white rounded-3xl overflow-hidden w-full h-full flex flex-col">
+            <div className="bg-white overflow-hidden w-full h-full flex flex-col">
               <img
-                src="https://images.unsplash.com/photo-1585060544812-6b45742d762f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                src="ProdSpecImage.jpg"
                 alt="Product"
-                className="w-full h-full object-cover rounded-t-3xl"
+                className="w-full h-full object-cover"
               />
-              
             </div>
           </div>
 
           {/* Top right - Heading - Takes full width on mobile */}
           <div
-            className={`col-span-1 md:col-span-3 md:row-span-2 flex flex-col justify-center transition-all duration-1000 ease-in-out ${
+            className={`col-span-1 mt-10 md:col-span-3 md:row-span-2 flex flex-col justify-center transition-all duration-1000 ease-in-out ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4  leading-tight">
               An Educator's ally, the <ColourfulText text="Fika Case " />
-              provides a simple, yet powerful solution.
+              provides a simple, yet powerful solution
             </h1>
           </div>
 

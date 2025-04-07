@@ -36,63 +36,55 @@ const HeroSection = () => {
   return (
     <div
       ref={heroRef}
-      className="w-full  min-h-screen overflow-hidden relative opacity-0 transition-opacity duration-1000"
-      style={{
-        background: "url('/bg-hero1.avif') center/cover no-repeat",
-      }}
+      className="w-full min-h-screen overflow-hidden relative opacity-0 transition-opacity duration-1000 flex items-center justify-center"
     >
-      <div className="container mx-auto px-4 py-12 md:py-20 flex flex-col md:flex-row items-center justify-between">
-        <div className="w-full md:w-1/2 z-10 mb-12 md:mb-0">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/home-bg-video.mp4" type="video/mp4" />
+      </video>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60"></div>
+
+      {/* Content Container - Positioned higher with reduced top padding */}
+      <div
+        className="container relative z-10 px-6 sm:px-8 md:px-12 pt-20 pb-12 md:pb-16 max-w-5xl mx-auto flex flex-col items-center justify-center"
+        style={{ marginTop: "-10vh" }}
+      >
+        <div className="w-full text-center text-white">
           <div
             ref={tagRef}
-            className="inline-flex items-center px-3 py-1 rounded-full tag-label mb-6 opacity-0 transform translate-y-4 transition-all duration-700"
+            className="inline-flex items-center px-2 py-2 rounded-full tag-label mb-6 opacity-0 transform translate-y-4 transition-all duration-700"
           ></div>
 
           <div
             ref={textRef}
-            className="opacity-0 transform translate-y-8 transition-all duration-700"
+            className="opacity-0 transform translate-y-8 transition-all duration-700 mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-lg">
               Education beyond
               <br />
               distractions
             </h1>
-            <p className="text-xl text-black/90 mb-8 max-w-md">
-              Phone-free classrooms for elevated learning{" "}
+            <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8 md:mb-10 mx-auto max-w-2xl drop-shadow-md">
+              Phone-free classrooms for elevated learning
             </p>
           </div>
 
-            <a href="/contact-us">
-              <button
-                ref={buttonRef}
-                className="cursor-pointer bg-white rounded-full px-6 py-3 text-black font-medium flex items-center opacity-0 transform translate-y-4 transition-all duration-700 button-animation"
-              >
-                Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
-              </button>
-            </a>
-        </div>
-
-        <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-          <div
-            className="relative w-full max-w-md md:max-w-lg rounded-2xl overflow-hidden shadow-2xl transform transition-transform hover:scale-[1.01] duration-700 animate-fade-in"
-            style={{
-              maxHeight: "550px",
-              background: "#111",
-              borderRadius: "16px",
-            }}
-          >
-            <img
-              src="https://preview--pulse-robot-landing.lovable.app/lovable-uploads/5663820f-6c97-4492-9210-9eaa1a8dc415.png"
-              alt="Atlas Robot"
-              className="w-full h-full object-cover"
-              loading="lazy"
-              onLoad={(e) => {
-                const img = e.target as HTMLImageElement;
-                img.style.opacity = "1";
-              }}
-              style={{ opacity: 0, transition: "opacity 1s ease" }}
-            />
-          </div>
+          <a href="/contact-us">
+            <button
+              ref={buttonRef}
+              className="cursor-pointer bg-white rounded-full px-8 py-4 text-lg md:text-xl text-black font-medium flex items-center opacity-0 transform translate-y-4 transition-all duration-700 button-animation mx-auto"
+            >
+              Get in Touch <ArrowRight className="ml-3 h-5 w-5" />
+            </button>
+          </a>
         </div>
       </div>
     </div>

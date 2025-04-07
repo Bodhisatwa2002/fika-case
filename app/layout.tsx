@@ -1,21 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Roboto_Condensed } from "next/font/google"; // Import Roboto Condensed
+import { Poppins } from "next/font/google"; // Import Poppins font
 import "./globals.css";
-import { CustomCursor } from "@/components/ui/CursorPointer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const robotoCondensed = Roboto_Condensed({
-  // Add Roboto Condensed
-  variable: "--font-roboto-condensed",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["300", "400", "700"], // Adjust weights as needed
 });
@@ -32,11 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${robotoCondensed.variable} antialiased`}
-      >
+      <body className={`${poppins.variable} antialiased`}>
         {children}
-        <CustomCursor/>
       </body>
     </html>
   );

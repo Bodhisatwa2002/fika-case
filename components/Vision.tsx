@@ -89,7 +89,7 @@ const Vision: React.FC = () => {
                 But banning them is not the solution.
               </span>
             </h1>
-            <p className="text-base sm:text-lg mt-6 text-black">
+            <p className="text-base sm:text-xl mt-6 text-black">
               According to a 2024 Pew Research study, 72% of high school
               teachers say cell phone distraction is a major problem in the
               classroom. But banning phones is simply not enough, because they
@@ -97,7 +97,7 @@ const Vision: React.FC = () => {
               content, and act as a critical communication tool to parents for
               student safety.
             </p>
-            <p className="text-base sm:text-lg mt-4 sm:mt-6 text-black">
+            <p className="text-base sm:text-xl mt-4 sm:mt-6 text-black">
               Schools around the world are taking action to enable responsible
               phone usage policies that enable growth in increasing digital
               environments while ensuring distraction-free learning
