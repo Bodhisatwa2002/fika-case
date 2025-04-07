@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Head from "next/head";
-import LogoIcon from "./icons/LogoIcon";
 
 interface FormData {
   name: string;
@@ -23,6 +22,8 @@ export default function ContactUsSection() {
     message: "",
   });
 
+  const [submitted, setSubmitted] = useState(false);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -30,14 +31,34 @@ export default function ContactUsSection() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+
+    const response = await fetch("https://formspree.io/f/mzzekrjz", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+      body: new FormData(e.target as HTMLFormElement),
+    });
+
+    if (response.ok) {
+      setSubmitted(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        organization: "",
+        role: "",
+        message: "",
+      });
+    } else {
+      alert("There was an error submitting the form. Please try again.");
+    }
   };
 
   return (
     <>
-      {/* SEO Meta Tags */}
       <Head>
         <title>Contact Us - Get in Touch</title>
         <meta
@@ -60,121 +81,101 @@ export default function ContactUsSection() {
                   Have questions? Want to share your thoughts? Talk to us
                 </h2>
 
-                <form onSubmit={handleSubmit}>
-                  {/* Name Input */}
-                  <label className="sr-only" htmlFor="name">
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    className="w-4/5 h-14 bg-black text-white shadow-sm placeholder-gray-400 text-lg font-normal leading-7 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
-                    placeholder="Name (First and Last)"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                  />
+                {submitted ? (
+                  <div className="text-green-400 text-lg font-semibold">
+                    Thank you for reaching out! We’ll get back to you soon.
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit}>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="Name (First and Last)"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-4/5 h-14 bg-black text-white shadow-sm placeholder-gray-400 text-lg font-normal leading-7 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
+                    />
 
-                  {/* Email Input */}
-                  <label className="sr-only" htmlFor="email">
-                    Email Address
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    className="w-4/5 h-14 bg-black text-white shadow-sm placeholder-gray-400 text-lg font-normal leading-7 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
-                    placeholder="Email Address (Required)"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                  />
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="Email Address (Required)"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-4/5 h-14 bg-black text-white shadow-sm placeholder-gray-400 text-lg font-normal leading-7 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
+                    />
 
-                  {/* Phone Input */}
-                  <label className="sr-only" htmlFor="phone">
-                    Phone Number
-                  </label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    className="w-4/5 h-14 bg-black text-white shadow-sm placeholder-gray-400 text-lg font-normal leading-7 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
-                    placeholder="Phone Number (Required)"
-                    required
-                    value={formData.phone}
-                    onChange={handleChange}
-                  />
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="Phone Number (Required)"
+                      required
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-4/5 h-14 bg-black text-white shadow-sm placeholder-gray-400 text-lg font-normal leading-7 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
+                    />
 
-                  {/* Organization Input */}
-                  <label className="sr-only" htmlFor="organization">
-                    Organization Name
-                  </label>
-                  <input
-                    id="organization"
-                    name="organization"
-                    type="text"
-                    className="w-4/5 h-14 bg-black text-white shadow-sm placeholder-gray-400 text-lg font-normal leading-7 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
-                    placeholder="School/Organization Name (Optional)"
-                    value={formData.organization}
-                    onChange={handleChange}
-                  />
+                    <input
+                      id="organization"
+                      name="organization"
+                      type="text"
+                      placeholder="School/Organization Name (Optional)"
+                      value={formData.organization}
+                      onChange={handleChange}
+                      className="w-4/5 h-14 bg-black text-white shadow-sm placeholder-gray-400 text-lg font-normal leading-7 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
+                    />
 
-                  {/* Role Input */}
-                  <label className="sr-only" htmlFor="role">
-                    Your Role
-                  </label>
-                  <input
-                    id="role"
-                    name="role"
-                    type="text"
-                    className="w-4/5 h-14 bg-black text-white shadow-sm placeholder-gray-400 text-lg font-normal leading-7 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
-                    placeholder="Your Role (Required)"
-                    required
-                    value={formData.role}
-                    onChange={handleChange}
-                  />
+                    <input
+                      id="role"
+                      name="role"
+                      type="text"
+                      placeholder="Your Role (Required)"
+                      required
+                      value={formData.role}
+                      onChange={handleChange}
+                      className="w-4/5 h-14 bg-black text-white shadow-sm placeholder-gray-400 text-lg font-normal leading-7 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
+                    />
 
-                  {/* Message Input */}
-                  <label className="sr-only" htmlFor="message">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    className="w-4/5 h-48 bg-black text-white shadow-sm resize-none placeholder-gray-400 text-lg font-normal leading-7 rounded-2xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 px-4 py-4 mb-8"
-                    placeholder="Message/Questions"
-                    value={formData.message}
-                    onChange={handleChange}
-                  />
+                    <textarea
+                      id="message"
+                      name="message"
+                      placeholder="Message/Questions"
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="w-4/5 h-48 bg-black text-white shadow-sm resize-none placeholder-gray-400 text-lg font-normal leading-7 rounded-2xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 px-4 py-4 mb-8"
+                    />
 
-                  {/* Submit Button */}
-                  <button
-                    className="w-4/5 h-12 text-center text-white text-lg font-semibold leading-6 rounded-xl cursor-pointer"
-                    style={{ backgroundColor: "#FF9900" }}
-                  >
-                    Submit
-                  </button>
-                </form>
+                    <button
+                      type="submit"
+                      className="w-4/5 h-12 text-center text-white text-lg font-semibold leading-6 rounded-xl cursor-pointer"
+                      style={{ backgroundColor: "#FF9900" }}
+                    >
+                      Submit
+                    </button>
+                  </form>
+                )}
               </div>
             </div>
 
-            {/* Right Side Info Card */}
+            {/* Right Section */}
             <div className="lg:max-w-xl w-full h-[600px] flex items-center justify-center rounded-2xl p-8">
               <div
                 className="w-full max-w-md bg-white shadow-xl p-8 rounded-xl text-black"
                 style={{ boxShadow: "0 4px 20px rgba(255, 255, 255, 0.4)" }}
               >
                 <div className="flex items-center justify-center mb-6">
-                  <div className="">
-                    <a href="/">
-                      <img
-                        src="logoblack.png"
-                        alt="Logo"
-                        className="h-20 w-auto"
-                      />
-                    </a>
-                  </div>
+                  <a href="/">
+                    <img
+                      src="logoblack.png"
+                      alt="Logo"
+                      className="h-20 w-auto"
+                    />
+                  </a>
                 </div>
                 <h3 className="text-2xl font-semibold text-center mb-6">
                   Join Our Community
