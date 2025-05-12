@@ -36,54 +36,35 @@ const processSteps = [
 
 // Transform processSteps into the format expected by the Timeline component
 const timelineData = processSteps.map((step) => ({
-  title: step.number,
-  content: (
-    <div className=" p-6 rounded-2xl text-white mb-10">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-x-8">
-        <div className="relative h-[200px] md:h-[300px] md:row-span-3 rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-500 hover:scale-[1.02]">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent z-10"></div>
-          <img
-            src={step.image}
-            alt={step.alt}
-            className="absolute inset-0 object-cover w-full h-full transform transition-transform duration-700 hover:scale-105"
-          />
-        </div>
-        <div className="md:col-span-2 md:col-start-2 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            {step.title}
-          </h2>
-          <p className="text-xl text-gray-400 font-medium leading-relaxed">
-            {step.description}
-          </p>
-        </div>
-      </div>
-    </div>
-  ),
+  title: step.title,
+  image: step.image,
+  alt: step.alt,
+  description: step.description,
 }));
 
 export function HowItWorksComponent() {
   return (
-    <section className="pb-16 pt-36 md:pb-24 md:pt-34 bg-black border-b border-[#333333] overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="mb-10 md:mb-20">
-          <h1 className="text-5xl md:text-7xl font-light text-white mb-6">
+    <section className="pb-24 pt-48 md:pb-32 md:pt-60 border-b border-[#333333] overflow-hidden">
+      <div className="w-full max-w-[1920px] mx-auto px-4 md:px-8 lg:px-12">
+        <div className="mb-16 md:mb-32">
+          <h1 className="text-6xl md:text-8xl font-light text-black mb-8">
             The
             <span className="text-[#FF9900] font-light">
               <img
                 src="logoOrange.png"
                 alt="Fika Orange Logo"
-                className="inline h-[1em] mx-2 align-middle translate-y-[-8px]"
+                className="inline h-[1.2em] mx-3 align-middle translate-y-[-8px]"
               />
               Case
             </span>{" "}
             in{" "}
-            <em className="font-light not-italic text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+            <em className="font-light not-italic text-transparent bg-clip-text bg-gradient-to-r text-black to-gray-600">
               Action
             </em>
           </h1>
         </div>
 
-        <div className="relative">
+        <div className="relative w-full">
           {/* Timeline component instead of animated dotted lines */}
           <Timeline data={timelineData} />
         </div>

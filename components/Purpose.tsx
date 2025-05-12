@@ -58,16 +58,16 @@ const Purpose = () => {
         }
       `}</style>
 
-      <section className="bg-black text-white pt-24 px-6 md:px-12 overflow-hidden">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+      <section className="bg-white text-black pt-24 px-6 md:px-12 overflow-hidden">
+        <div className="max-w-[60%] mx-auto flex flex-col lg:flex-row items-center gap-12">
           {/* First row - keeping original positioning */}
           <div className="lg:w-1/2 space-y-8 fade-in">
             <div className="space-y-3">
-              <h2 className="text-3xl md:text-3xl font-light flex items-baseline mb-10">
+              <h2 className="text-4xl md:text-5xl font-light flex items-baseline mb-10">
                 Bringing Fika values to the classroom
               </h2>
 
-              <p className="text-gray-300 leading-relaxed text-lg max-w-lg">
+              <p className="text-gray-700 leading-relaxed text-xl max-w-lg">
                 Classrooms, at their heart, are vibrant social spaces where
                 learning thrives on interaction and collaboration. We recognized
                 that the core principles of Fika – focus, connection, and
@@ -89,8 +89,8 @@ const Purpose = () => {
         </div>
       </section>
 
-      <section className="bg-black text-white py-24 px-6 md:px-12 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-white text-black py-24 px-6 md:px-12 overflow-hidden">
+        <div className="max-w-[60%] mx-auto">
           {/* Second row - container without flex to allow custom positioning */}
           <div className="flex flex-col-reverse lg:flex-row gap-12">
             {/* Image column - same width as first row image */}
@@ -107,11 +107,11 @@ const Purpose = () => {
             {/* Text column - aligned with image in first row */}
             <div className="lg:w-1/2 space-y-8 lg:ml-auto pl-10">
               <div className="space-y-3 fade-in">
-                <h2 className="text-3xl md:text-3xl font-light flex items-baseline mb-10">
+                <h2 className="text-4xl md:text-5xl font-light flex items-baseline mb-10">
                   The FIKA difference
                 </h2>
 
-                <p className="text-gray-300 leading-relaxed max-w-lg">
+                <p className="text-gray-700 leading-relaxed text-xl max-w-lg">
                   The Fika Case was born from a simple, yet powerful idea: what
                   if we could bring the spirit of Fika into the classroom? What
                   if we could create a space where students and teachers could
@@ -120,7 +120,7 @@ const Purpose = () => {
               </div>
 
               <div className="space-y-3 fade-in">
-                <p className="text-gray-300 leading-relaxed max-w-lg">
+                <p className="text-gray-700 leading-relaxed text-xl max-w-lg">
                   Join us in creating classrooms where learning thrives and
                   students reach their full potential.
                 </p>
@@ -130,7 +130,7 @@ const Purpose = () => {
                 <a href="/contact-us">
                   <button
                     ref={buttonRef}
-                    className="cursor-pointer bg-white rounded-full px-8 py-4 text-lg md:text-xl text-black font-medium flex items-center button-animation"
+                    className="cursor-pointer bg-black rounded-full px-8 py-4 text-lg md:text-xl text-white font-medium flex items-center button-animation"
                   >
                     Get in Touch <ArrowRight className="ml-3 h-5 w-5" />
                   </button>

@@ -68,9 +68,8 @@ const ProductSpec: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       if (containerRef.current) {
-        containerRef.current.style.height = `${
-          containerRef.current.clientHeight + 0.1
-        }px`;
+        containerRef.current.style.height = `${containerRef.current.clientHeight + 0.1
+          }px`;
         setTimeout(() => {
           if (containerRef.current) {
             containerRef.current.style.height = "";
@@ -83,58 +82,64 @@ const ProductSpec: React.FC = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="bg-white mt-20 mb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-5 md:grid-rows-5 gap-8">
-          {/* Left column - Mobile image - Hidden on mobile */}
-          <div
-            className={`hidden md:flex md:col-span-2 md:row-span-5 bg-white rounded-3xl p-6 flex-col items-center transition-opacity duration-1000 ease-in-out ${
-              isVisible ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <div className="bg-white overflow-hidden w-full h-full flex flex-col">
-              <img
-                src="ProdSpecImage.jpg"
-                alt="Product"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+    <div ref={sectionRef} className="relative min-h-screen">
+      {/* Background Image */}
+      <div className="absolute inset-0 w-full h-full">
+        <img
+          src="ProdSpecImage.jpg"
+          alt="Product"
+          className="w-full h-full object-cover"
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/30"></div>
+      </div>
 
-          {/* Top right - Heading - Takes full width on mobile */}
-          <div
-            className={`col-span-1 mt-10 md:col-span-3 md:row-span-2 flex flex-col justify-center transition-all duration-1000 ease-in-out ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-            style={{ transitionDelay: "200ms" }}
-          >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4  leading-tight">
-              An Educator's ally, the <ColourfulText text="Fika Case " />
-              provides a simple, yet powerful solution
-            </h1>
-          </div>
+      {/* Content Container */}
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="grid grid-cols-1 md:grid-cols-5 min-h-screen">
+          {/* Left side - Dummy div */}
+          <div className="hidden md:block md:col-span-2 w-full h-full"></div>
 
-          {/* Bottom right - Infinite Moving Cards - Takes full width on mobile */}
-          <div
-            className={`col-span-1 md:col-span-3 md:row-span-3 flex flex-col transition-all duration-1000 ease-in-out ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-            style={{ transitionDelay: "400ms" }}
-          >
+          {/* Right side - Content */}
+          <div className="flex flex-col justify-start pt-20 md:col-span-3">
+            {/* Heading */}
             <div
-              ref={containerRef}
-              className="min-h-[300px] sm:min-h-[350px] md:h-64 w-full"
+              className={`transition-all duration-1000 ease-in-out ${isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+              }`}
+              style={{ transitionDelay: "200ms" }}
             >
-              <div className="h-full rounded-md flex flex-col antialiased bg-white items-center justify-center relative overflow-hidden">
-                <InfiniteMovingCards
-                  items={testimonials}
-                  direction="left"
-                  speed="normal"
+              <h1 className="font-display text-h1 font-bold text-white mb-12 leading-tight">
+                An Educator's ally, the 
+                <img
+                  src="logoOrange.png"
+                  alt="FikaCASE Logo"
+                  className="inline h-[1.2em] mx-3 align-middle translate-y-[-8px]"
                 />
+                provides a simple, yet powerful solution
+              </h1>
+            </div>
+
+            {/* Cards */}
+            <div
+              className={`transition-all duration-1000 ease-in-out ${isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+              }`}
+              style={{ transitionDelay: "400ms" }}
+            >
+              <div
+                ref={containerRef}
+                className="mt-40 min-h-[400px] sm:min-h-[450px] md:min-h-[500px] w-full"
+              >
+                <div className="h-full rounded-md flex flex-col antialiased bg-white/10 items-center justify-center relative overflow-hidden">
+                  <InfiniteMovingCards
+                    items={testimonials}
+                    direction="left"
+                    speed="normal"
+                  />
+                </div>
               </div>
             </div>
           </div>

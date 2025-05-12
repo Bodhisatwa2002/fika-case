@@ -72,18 +72,18 @@ export default function ContactUsSection() {
         <meta name="author" content="Your Company Name" />
       </Head>
 
-      <section className="py-24 bg-black text-white">
+      <section className="py-24 bg-white text-gray-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-24">
             <div className="flex items-center lg:mb-0 mb-10">
               <div className="w-full">
-                <h2 className="font-manrope text-4xl font-semibold leading-10 mb-9 lg:text-left text-center">
+                <h2 className="font-display text-h2 font-semibold leading-10 mb-9 lg:text-left text-center">
                   Have questions? Want to share your thoughts? Talk to us
                 </h2>
 
                 {submitted ? (
-                  <div className="text-green-400 text-lg font-semibold">
-                    Thank you for reaching out! We’ll get back to you soon.
+                  <div className="text-green-600 text-body font-body font-semibold">
+                    Thank you for reaching out! We'll get back to you soon.
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit}>
@@ -95,7 +95,7 @@ export default function ContactUsSection() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-4/5 h-14 bg-black text-white shadow-sm placeholder-gray-400 text-lg font-normal leading-7 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
+                      className="w-4/5 h-14 bg-white text-gray-900 shadow-sm placeholder-gray-400 text-body font-body leading-7 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
                     />
 
                     <input
@@ -106,7 +106,7 @@ export default function ContactUsSection() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-4/5 h-14 bg-black text-white shadow-sm placeholder-gray-400 text-lg font-normal leading-7 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
+                      className="w-4/5 h-14 bg-white text-gray-900 shadow-sm placeholder-gray-400 text-body font-body leading-7 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
                     />
 
                     <input
@@ -117,7 +117,7 @@ export default function ContactUsSection() {
                       required
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-4/5 h-14 bg-black text-white shadow-sm placeholder-gray-400 text-lg font-normal leading-7 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
+                      className="w-4/5 h-14 bg-white text-gray-900 shadow-sm placeholder-gray-400 text-body font-body leading-7 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
                     />
 
                     <input
@@ -127,7 +127,7 @@ export default function ContactUsSection() {
                       placeholder="School/Organization Name (Optional)"
                       value={formData.organization}
                       onChange={handleChange}
-                      className="w-4/5 h-14 bg-black text-white shadow-sm placeholder-gray-400 text-lg font-normal leading-7 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
+                      className="w-4/5 h-14 bg-white text-gray-900 shadow-sm placeholder-gray-400 text-body font-body leading-7 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
                     />
 
                     <input
@@ -138,7 +138,7 @@ export default function ContactUsSection() {
                       required
                       value={formData.role}
                       onChange={handleChange}
-                      className="w-4/5 h-14 bg-black text-white shadow-sm placeholder-gray-400 text-lg font-normal leading-7 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
+                      className="w-4/5 h-14 bg-white text-gray-900 shadow-sm placeholder-gray-400 text-body font-body leading-7 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 py-2 px-4 mb-8"
                     />
 
                     <textarea
@@ -147,12 +147,12 @@ export default function ContactUsSection() {
                       placeholder="Message/Questions"
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-4/5 h-48 bg-black text-white shadow-sm resize-none placeholder-gray-400 text-lg font-normal leading-7 rounded-2xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 px-4 py-4 mb-8"
+                      className="w-4/5 h-48 bg-white text-gray-900 shadow-sm resize-none placeholder-gray-400 text-body font-body leading-7 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 px-4 py-4 mb-8"
                     />
 
                     <button
                       type="submit"
-                      className="w-4/5 h-12 text-center text-white text-lg font-semibold leading-6 rounded-xl cursor-pointer"
+                      className="w-4/5 h-12 text-center text-white text-body font-body font-semibold leading-6 rounded-xl cursor-pointer"
                       style={{ backgroundColor: "#FF9900" }}
                     >
                       Submit
@@ -166,7 +166,7 @@ export default function ContactUsSection() {
             <div className="lg:max-w-xl w-full h-[600px] flex items-center justify-center rounded-2xl p-8">
               <div
                 className="w-full max-w-md bg-white shadow-xl p-8 rounded-xl text-black"
-                style={{ boxShadow: "0 4px 20px rgba(255, 255, 255, 0.4)" }}
+                style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}
               >
                 <div className="flex items-center justify-center mb-6">
                   <a href="/">
@@ -177,10 +177,10 @@ export default function ContactUsSection() {
                     />
                   </a>
                 </div>
-                <h3 className="text-2xl font-semibold text-center mb-6">
+                <h3 className="text-h3 font-display font-semibold text-center mb-6">
                   Join Our Community
                 </h3>
-                <p className="text-gray-600 text-center mb-8">
+                <p className="text-body font-body text-gray-600 text-center mb-8">
                   Join a community of educators dedicated to focused learning.
                   Share your information, and let's explore Fika together.
                 </p>

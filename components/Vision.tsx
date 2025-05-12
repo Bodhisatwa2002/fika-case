@@ -71,6 +71,19 @@ const Vision: React.FC = () => {
     return { transform: `translateX(${translateX}%) rotateY(${rotateY}deg)` };
   };
 
+  const calculateCardTransforms = () => {
+    if (isMobile) return [{}, {}, {}];
+
+    const scrollProgress = Math.min(scrollY / windowHeight, 1);
+    return [
+      { transform: `translateX(${-30 * scrollProgress}%)` },
+      { transform: `translateX(0)` },
+      { transform: `translateX(${30 * scrollProgress}%)` }
+    ];
+  };
+
+  const cardTransforms = calculateCardTransforms();
+
   return (
     <div ref={containerRef} className="parallax-content relative h-full">
       <div className="sticky top-0 h-screen w-full perspective overflow-hidden">
@@ -79,43 +92,104 @@ const Vision: React.FC = () => {
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 px-4 overflow-y-auto">
           <div
             ref={textContentRef}
-            className={`relative text-center max-w-3xl mx-auto py-8 sm:py-0 transition-opacity duration-1000 ease-in-out ${
+            className={`relative text-center max-w-6xl mx-auto py-8 sm:py-0 transition-opacity duration-1000 ease-in-out ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >
-            <h1 className="text-3xl sm:text-5xl font-bold mb-4 tracking-tight text-black">
+            {/* Header and Subheader */}
+            <h1 className="font-display text-h2 font-bold mb-4 tracking-tight text-black">
               Phones do not belong in the classrooms.
-              <span className="block italic font-medium text-black mt-2">
+              <span className="block italic font-body font-medium text-black mt-2 text-h3">
                 But banning them is not the solution.
               </span>
             </h1>
-            <p className="text-base sm:text-xl mt-6 text-black">
-              According to a 2024 Pew Research study, 72% of high school
-              teachers say cell phone distraction is a major problem in the
-              classroom. But banning phones is simply not enough, because they
-              also enable accelerated learning, provide access to digital
-              content, and act as a critical communication tool to parents for
-              student safety.
-            </p>
-            <p className="text-base sm:text-xl mt-4 sm:mt-6 text-black">
-              Schools around the world are taking action to enable responsible
-              phone usage policies that enable growth in increasing digital
-              environments while ensuring distraction-free learning
-            </p>
-          </div>
-          <div
-            className={`mb-8 sm:mb-0 transition-opacity duration-1000 ease-in-out delay-300 ${
-              isVisible ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <a
-              href="#"
-              title=""
-              className="inline-flex items-center px-4 sm:px-6 py-3 sm:py-4 font-semibold text-black transition-all duration-200 bg-[#FF9900] rounded-full mt-4 sm:mt-6 hover:bg-[#ff9900cd] focus:bg-yellow-400"
-              role="button"
-            >
-              Dive into Research
-            </a>
+
+            {/* Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-12 relative">
+              {/* Card 1 */}
+              <div 
+                className="bg-white shadow-lg rounded-xl overflow-hidden transition-all duration-700"
+                style={cardTransforms[0]}
+              >
+                {/* Image Section */}
+                <div className="relative p-4 m-4 rounded-xl border border-gray-100">
+                  <div className="aspect-w-16 aspect-h-9">
+                    <img
+                      src="/iceberg1.png"
+                      alt="Classroom"
+                      className="object-cover w-full h-full rounded-lg"
+                    />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                    <h3 className="text-white text-h3 font-display font-semibold text-left">
+                      Phones do not belong in the classrooms
+                    </h3>
+                  </div>
+                </div>
+                {/* Text Section */}
+                <div className="p-6 m-4 rounded-xl border border-gray-100">
+                  <p className="text-black text-body font-body text-left">
+                    72% of all school teachers say cell phone distraction is a major issue in the classroom
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 2 */}
+              <div 
+                className="bg-white shadow-lg rounded-xl overflow-hidden transition-all duration-700"
+                style={cardTransforms[1]}
+              >
+                {/* Image Section */}
+                <div className="relative p-4 m-4 rounded-xl border border-gray-100">
+                  <div className="aspect-w-16 aspect-h-9">
+                    <img
+                      src="/iceberg2.png"
+                      alt="Teacher"
+                      className="object-cover w-full h-full rounded-lg"
+                    />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                    <h3 className="text-white text-h3 font-display font-semibold text-left">
+                      But, banning them is not enough
+                    </h3>
+                  </div>
+                </div>
+                {/* Text Section */}
+                <div className="p-6 m-4 rounded-xl border border-gray-100">
+                  <p className="text-black text-body font-body text-left">
+                    Phones not only act as critical communication devices to parent for student safety but also aid in accelerated learning
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 3 */}
+              <div 
+                className="bg-white shadow-lg rounded-xl overflow-hidden transition-all duration-700"
+                style={cardTransforms[2]}
+              >
+                {/* Image Section */}
+                <div className="relative p-4 m-4 rounded-xl border border-gray-100">
+                  <div className="aspect-w-16 aspect-h-9">
+                    <img
+                      src="/iceberg1.png"
+                      alt="Student"
+                      className="object-cover w-full h-full rounded-lg"
+                    />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                    <h3 className="text-white text-h3 font-display font-semibold text-left">
+                      Schools around the world are taking action
+                    </h3>
+                  </div>
+                </div>
+                {/* Text Section */}
+                <div className="p-6 m-4 rounded-xl border border-gray-100">
+                  <p className="text-black text-body font-body text-left">
+                    Responsible phone usage policies can enable growth in increasingly digital environments while ensuring distraction-free learning
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

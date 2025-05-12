@@ -34,7 +34,7 @@ const GetInTouch = () => {
     >
       <div className="max-w-3xl mx-auto px-4">
         <h2
-          className={`sm:text-4xl text-3xl font-bold mb-4 text-black transition-all duration-1000 ease-in-out ${
+          className={`sm:text-4xl text-3xl font-display text-h2 font-bold mb-4 text-black transition-all duration-1000 ease-in-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
@@ -43,7 +43,7 @@ const GetInTouch = () => {
         </h2>
 
         <p
-          className={`text-2xl text-gray-700 mb-8 transition-all duration-1000 ease-in-out ${
+          className={`text-h3 font-body text-gray-700 mb-8 transition-all duration-1000 ease-in-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
           style={{ transitionDelay: "200ms" }}
@@ -60,7 +60,7 @@ const GetInTouch = () => {
           <a
             href="/faq"
             title=""
-            className="inline-flex items-center justify-center w-full sm:w-auto px-6 py-4 font-semibold text-black transition-all duration-200 bg-[#FF9900] rounded-full hover:bg-[#ff9900cd] focus:bg-yellow-400 cursor-pointer"
+            className="inline-flex items-center justify-center w-full sm:w-auto px-6 py-4 font-body text-h3 text-black transition-all duration-200 bg-[#FF9900] rounded-full hover:bg-[#ff9900cd] focus:bg-yellow-400 cursor-pointer"
             role="button"
           >
             Read The FAQ's
@@ -68,7 +68,7 @@ const GetInTouch = () => {
           <a
             href="/contact-us"
             title=""
-            className="inline-flex items-center justify-center w-full sm:w-auto px-6 py-4 font-semibold text-black transition-all duration-200 bg-[#FF9900] rounded-full hover:bg-[#ff9900cd] focus:bg-yellow-400 cursor-pointer"
+            className="inline-flex items-center justify-center w-full sm:w-auto px-6 py-4 font-body text-h3 text-black transition-all duration-200 bg-[#FF9900] rounded-full hover:bg-[#ff9900cd] focus:bg-yellow-400 cursor-pointer"
             role="button"
           >
             Get in Touch

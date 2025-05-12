@@ -47,28 +47,39 @@ const WhyItMattersComponent: React.FC = () => {
     },
   ];
 
+  // Accent color for border, divider, and hover
+  const accent = "#2563eb"; // Tailwind blue-600
+
   return (
-    <div className="min-h-screen bg-black text-white py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen bg-white text-gray-900 py-16 px-4 sm:px-8 lg:px-16">
+      <div className="max-w-4xl mx-auto">
         <div className="mb-16 mt-10">
-          <h1 className="text-4xl font-bold mb-6 text-center">
+          <h1 className="font-display text-h1 mb-6 text-center tracking-tight">
             Why It Matters
           </h1>
-          <div className="h-1 w-24 bg-blue-500 mx-auto mb-12"></div>
-          <p className="text-lg text-gray-300 text-center max-w-2xl mx-auto">
-            Research findings highlighting the impact of mobile phones and
-            social media on education and student wellbeing.
+          <div className="h-1 w-32 mx-auto mb-10 rounded-full" style={{ background: accent }}></div>
+          <p className="font-body text-body text-gray-600 text-center max-w-3xl mx-auto">
+            Research findings highlighting the impact of mobile phones and social media on education and student wellbeing.
           </p>
         </div>
 
-        <div className="space-y-16">
+        <div className="space-y-10">
           {researchArticles.map((article, index) => (
-            <div key={index} className="border-l-2 border-blue-500 pl-6">
-              <Link href={article.link} className="block group">
-                <h2 className="text-2xl font-bold text-[#4090BD] mb-2 hover:text-[#7da8c0] transition-colors">
+            <div
+              key={index}
+              className="relative bg-white border-l-4 shadow-lg rounded-2xl px-8 py-7 transition-transform duration-200 hover:scale-[1.02] hover:shadow-2xl"
+              style={{ borderColor: accent }}
+            >
+              <Link
+                href={article.link}
+                className="block group"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h2 className="text-h3 font-body font-medium mb-2 text-gray-700 orange-gradient-hover transition-colors">
                   {article.title}
                 </h2>
-                <p className="text-white text-md">{article.source}</p>
+                <p className="text-body font-body text-gray-500 font-medium">{article.source}</p>
               </Link>
             </div>
           ))}

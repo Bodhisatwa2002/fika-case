@@ -38,10 +38,10 @@ const Footer = () => {
         <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
           {/* Logo and Copyright */}
           <div className="flex flex-col items-start">
-            <div className="flex items-center">
+            <div className="flex items-center font-display text-h3">
               <img src="logo.png" alt="Logo" className="h-8 w-auto" />
             </div>
-            <p className="text-sm text-white mt-2">
+            <p className="text-small font-body text-white mt-2">
               Copyright © 2025 Fika Case. Patent Pending.
             </p>
           </div>
@@ -60,19 +60,19 @@ const Footer = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="w-full pl-10 pr-4 py-2 border border-white text-white placeholder-gray-400 bg-black rounded-lg focus:ring-2 focus:ring-white focus:border-white outline-none transition-all"
+                  className="w-full pl-10 pr-4 py-2 border border-white text-white placeholder-gray-400 bg-black rounded-lg focus:ring-2 focus:ring-white focus:border-white outline-none transition-all font-body text-body"
                   required
                 />
               </div>
               <button
                 type="submit"
-                className="bg-[#FF9900] text-black px-6 py-2 rounded-lg hover:bg-[#e68a00] transition-colors flex-shrink-0 cursor-pointer"
+                className="bg-[#FF9900] text-black px-6 py-2 rounded-lg hover:bg-[#e68a00] transition-colors flex-shrink-0 cursor-pointer font-body text-body"
               >
                 Subscribe
               </button>
             </form>
             {submitted && (
-              <p className="text-green-400 mt-2 text-sm">
+              <p className="text-green-400 mt-2 text-small font-body">
                 Thanks for subscribing!
               </p>
             )}
