@@ -1,6 +1,7 @@
 // why-it-matters.tsx
 import React from "react";
 import Link from "next/link";
+import { cn, commonClasses } from "@/lib/styles/utils";
 
 interface ResearchItem {
   title: string;
@@ -47,18 +48,15 @@ const WhyItMattersComponent: React.FC = () => {
     },
   ];
 
-  // Accent color for border, divider, and hover
-  const accent = "#2563eb"; // Tailwind blue-600
-
   return (
-    <div className="min-h-screen bg-white text-gray-900 py-16 px-4 sm:px-8 lg:px-16">
-      <div className="max-w-4xl mx-auto">
+    <section className={cn(commonClasses.section, "bg-white text-gray-900 py-16")}>
+      <div className={cn(commonClasses.container, "max-w-4xl")}>
         <div className="mb-16 mt-10">
-          <h1 className="font-display text-h1 mb-6 text-center tracking-tight">
+          <h1 className={cn(commonClasses.h1, "mb-6 text-center tracking-tight")}>
             Why It Matters
           </h1>
-          <div className="h-1 w-32 mx-auto mb-10 rounded-full" style={{ background: accent }}></div>
-          <p className="font-body text-body text-gray-600 text-center max-w-3xl mx-auto">
+          <div className="h-1 w-32 mx-auto mb-10 rounded-full bg-primary"></div>
+          <p className={cn(commonClasses.body, "text-gray-600 text-center max-w-3xl mx-auto")}>
             Research findings highlighting the impact of mobile phones and social media on education and student wellbeing.
           </p>
         </div>
@@ -67,8 +65,10 @@ const WhyItMattersComponent: React.FC = () => {
           {researchArticles.map((article, index) => (
             <div
               key={index}
-              className="relative bg-white border-l-4 shadow-lg rounded-2xl px-8 py-7 transition-transform duration-200 hover:scale-[1.02] hover:shadow-2xl"
-              style={{ borderColor: accent }}
+              className={cn(
+                commonClasses.card.base,
+                "border-l-4 border-primary px-8 py-7 transition-transform duration-200 hover:scale-[1.02]"
+              )}
             >
               <Link
                 href={article.link}
@@ -76,16 +76,18 @@ const WhyItMattersComponent: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <h2 className="text-h3 font-body font-medium mb-2 text-gray-700 orange-gradient-hover transition-colors">
+                <h2 className={cn(commonClasses.h3, "font-medium mb-2 text-gray-700 orange-gradient-hover transition-colors")}>
                   {article.title}
                 </h2>
-                <p className="text-body font-body text-gray-500 font-medium">{article.source}</p>
+                <p className={cn(commonClasses.body, "text-gray-500 font-medium")}>
+                  {article.source}
+                </p>
               </Link>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

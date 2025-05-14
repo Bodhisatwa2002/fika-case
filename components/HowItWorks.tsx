@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import ColourfulText from "./ui/colourful-text";
 import { Timeline } from "./ui/timeline";
+import { cn, commonClasses } from "@/lib/styles/utils";
 
 const processSteps = [
   {
@@ -44,28 +45,23 @@ const timelineData = processSteps.map((step) => ({
 
 export function HowItWorksComponent() {
   return (
-    <section className="pb-24 pt-48 md:pb-32 md:pt-60 border-b border-[#333333] overflow-hidden">
-      <div className="w-full max-w-[1920px] mx-auto px-4 md:px-8 lg:px-12">
+    <section className={cn(commonClasses.section, "mt-20 pb-24 pt-32 md:pb-32 md:pt-40 border-b border-[#333333] overflow-hidden")}>
+      <div className={cn(commonClasses.container, "px-4 md:px-8 lg:px-12")}>
         <div className="mb-16 md:mb-32">
-          <h1 className="text-6xl md:text-8xl font-light text-black mb-8">
-            The
-            <span className="text-[#FF9900] font-light">
+          <h1 className={cn(commonClasses.h1, "text-black mb-8")}>
+            <span className="font-light">
               <img
                 src="logoOrange.png"
                 alt="Fika Orange Logo"
                 className="inline h-[1.2em] mx-3 align-middle translate-y-[-8px]"
               />
-              Case
+              <span className={cn(commonClasses.gradient.orange, commonClasses.gradient.text)}>Case</span>
             </span>{" "}
-            in{" "}
-            <em className="font-light not-italic text-transparent bg-clip-text bg-gradient-to-r text-black to-gray-600">
-              Action
-            </em>
+            in Action
           </h1>
         </div>
 
         <div className="relative w-full">
-          {/* Timeline component instead of animated dotted lines */}
           <Timeline data={timelineData} />
         </div>
       </div>

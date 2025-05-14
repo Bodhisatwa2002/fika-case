@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { cn, commonClasses } from "@/lib/styles/utils";
 
 interface FAQItem {
   question: string;
@@ -43,11 +44,11 @@ const FAQSection: React.FC = () => {
   };
 
   return (
-    <section className="relative py-30 overflow-hidden bg-black">
-      <div className="relative container px-4 mx-auto">
+    <section className={cn(commonClasses.section, "bg-black py-30 overflow-hidden")}>
+      <div className={cn(commonClasses.container)}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-24">
-            <h1 className="font-heading text-3xl md:text-5xl font-bold text-white">
+            <h1 className={cn(commonClasses.h1, "text-white")}>
               <span className="font-serif italic">Looking for Help ?</span>
             </h1>
           </div>
@@ -56,24 +57,30 @@ const FAQSection: React.FC = () => {
               <div
                 key={index}
                 onClick={() => toggleAccordion(index)}
-                className={`flex cursor-pointer ${
+                className={cn(
+                  "flex cursor-pointer w-full items-start justify-between border-b border-primary text-left",
                   index !== faqItems.length - 1 ? "mb-8 pb-8" : "pb-8"
-                } group w-full items-start justify-between border-b border-[#FF9900] text-left`}
+                )}
               >
                 <div className="max-w-xl pr-5">
                   <h3
-                    className={`text-xl font-semibold ${
+                    className={cn(
+                      commonClasses.h3,
+                      "font-semibold",
                       openIndex === index ? "text-orange-600" : "text-white"
-                    }`}
+                    )}
                   >
                     {item.question}
                   </h3>
                   <div
-                    className={`overflow-hidden duration-500 ${
+                    className={cn(
+                      "overflow-hidden duration-500",
                       openIndex === index ? "h-auto mt-3" : "h-0"
-                    }`}
+                    )}
                   >
-                    <p className="text-lg text-gray-300">{item.answer}</p>
+                    <p className={cn(commonClasses.body, "text-gray-300")}>
+                      {item.answer}
+                    </p>
                   </div>
                 </div>
                 <div className="pt-1">

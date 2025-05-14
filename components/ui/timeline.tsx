@@ -65,14 +65,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             <div className="w-1/2 pr-24">
               {index % 2 === 0 ? (
                 <motion.div
-                  initial={{ x: -200, opacity: 0, scale: 0.8 }}
+                  initial={{ x: -100, opacity: 0, scale: 0.95 }}
                   whileInView={{ x: 0, opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  viewport={{ once: true, margin: "-150px" }}
                   transition={{ 
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 20,
-                    mass: 1
+                    duration: 0.8,
+                    ease: [0.21, 0.45, 0.32, 0.9],
+                    opacity: { duration: 0.6 }
                   }}
                   className="relative h-[300px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl transform transition-transform duration-500 hover:scale-[1.02]"
                 >
@@ -85,14 +84,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 </motion.div>
               ) : (
                 <motion.div
-                  initial={{ x: -200, opacity: 0, scale: 0.8 }}
+                  initial={{ x: -100, opacity: 0, scale: 0.95 }}
                   whileInView={{ x: 0, opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  viewport={{ once: true, margin: "-150px" }}
                   transition={{ 
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 20,
-                    mass: 1
+                    duration: 0.8,
+                    ease: [0.21, 0.45, 0.32, 0.9],
+                    opacity: { duration: 0.6 }
                   }}
                   className="space-y-6"
                 >
@@ -109,14 +107,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             {/* Center Timeline with Step */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10">
               <motion.div
-                initial={{ scale: 0, opacity: 0 }}
+                initial={{ scale: 0.5, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "-150px" }}
                 transition={{ 
-                  type: "spring",
-                  stiffness: 200,
-                  damping: 20,
-                  mass: 1
+                  duration: 0.5,
+                  ease: [0.21, 0.45, 0.32, 0.9],
+                  opacity: { duration: 0.4 }
                 }}
                 className="h-24 w-24 rounded-full bg-[#FF9900] flex items-center justify-center shadow-lg transform transition-transform duration-300 hover:scale-110 mb-6"
               >
@@ -128,14 +125,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             <div className="w-1/2 pl-24">
               {index % 2 === 0 ? (
                 <motion.div
-                  initial={{ x: 200, opacity: 0, scale: 0.8 }}
+                  initial={{ x: 100, opacity: 0, scale: 0.95 }}
                   whileInView={{ x: 0, opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  viewport={{ once: true, margin: "-150px" }}
                   transition={{ 
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 20,
-                    mass: 1
+                    duration: 0.8,
+                    ease: [0.21, 0.45, 0.32, 0.9],
+                    opacity: { duration: 0.6 }
                   }}
                   className="space-y-6"
                 >
@@ -148,14 +144,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 </motion.div>
               ) : (
                 <motion.div
-                  initial={{ x: 200, opacity: 0, scale: 0.8 }}
+                  initial={{ x: 100, opacity: 0, scale: 0.95 }}
                   whileInView={{ x: 0, opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  viewport={{ once: true, margin: "-150px" }}
                   transition={{ 
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 20,
-                    mass: 1
+                    duration: 0.8,
+                    ease: [0.21, 0.45, 0.32, 0.9],
+                    opacity: { duration: 0.6 }
                   }}
                   className="relative h-[300px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl transform transition-transform duration-500 hover:scale-[1.02]"
                 >

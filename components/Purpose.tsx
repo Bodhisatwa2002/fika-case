@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import { cn, commonClasses } from "@/lib/styles/utils";
 
 const Purpose = () => {
   const sectionRefs = useRef([]);
@@ -58,16 +59,16 @@ const Purpose = () => {
         }
       `}</style>
 
-      <section className="bg-white text-black pt-24 px-6 md:px-12 overflow-hidden">
-        <div className="max-w-[60%] mx-auto flex flex-col lg:flex-row items-center gap-12">
+      <section className={cn(commonClasses.section, "bg-white text-black pt-24 px-6 md:px-12 overflow-hidden")}>
+        <div className={cn(commonClasses.container, "flex flex-col lg:flex-row items-center gap-12")}>
           {/* First row - keeping original positioning */}
           <div className="lg:w-1/2 space-y-8 fade-in">
             <div className="space-y-3">
-              <h2 className="text-4xl md:text-5xl font-light flex items-baseline mb-10">
+              <h2 className={cn(commonClasses.h1, "flex items-baseline mb-10 font-semibold")}>
                 Bringing Fika values to the classroom
               </h2>
 
-              <p className="text-gray-700 leading-relaxed text-xl max-w-lg">
+              <p className={cn(commonClasses.body, "text-gray-700 max-w-lg")}>
                 Classrooms, at their heart, are vibrant social spaces where
                 learning thrives on interaction and collaboration. We recognized
                 that the core principles of Fika – focus, connection, and
@@ -78,28 +79,28 @@ const Purpose = () => {
           </div>
 
           <div className="lg:w-5/12 relative fade-in">
-            <div className="rounded-3xl overflow-hidden">
+            <div className={cn(commonClasses.card.base, "overflow-hidden rounded-3xl")}>
               <img
                 src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1200&q=80"
                 alt="Team members working on a project"
-                className="w-full h-auto object-cover rounded-3xl"
+                className="w-full h-auto object-cover"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-white text-black py-24 px-6 md:px-12 overflow-hidden">
-        <div className="max-w-[60%] mx-auto">
+      <section className={cn(commonClasses.section, "bg-white text-black px-6 md:px-12 overflow-hidden")}>
+        <div className={cn(commonClasses.container)}>
           {/* Second row - container without flex to allow custom positioning */}
           <div className="flex flex-col-reverse lg:flex-row gap-12">
             {/* Image column - same width as first row image */}
             <div className="lg:w-5/12 relative fade-in">
-              <div className="rounded-3xl overflow-hidden">
+              <div className={cn(commonClasses.card.base, "overflow-hidden rounded-3xl")}>
                 <img
                   src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1200&q=80"
                   alt="Creative collaboration"
-                  className="w-full h-auto object-cover rounded-3xl"
+                  className="w-full h-auto object-cover"
                 />
               </div>
             </div>
@@ -107,11 +108,11 @@ const Purpose = () => {
             {/* Text column - aligned with image in first row */}
             <div className="lg:w-1/2 space-y-8 lg:ml-auto pl-10">
               <div className="space-y-3 fade-in">
-                <h2 className="text-4xl md:text-5xl font-light flex items-baseline mb-10">
+                <h2 className={cn(commonClasses.h1, "flex items-baseline mb-10 font-semibold")}>
                   The FIKA difference
                 </h2>
 
-                <p className="text-gray-700 leading-relaxed text-xl max-w-lg">
+                <p className={cn(commonClasses.body, "text-gray-700 max-w-lg")}>
                   The Fika Case was born from a simple, yet powerful idea: what
                   if we could bring the spirit of Fika into the classroom? What
                   if we could create a space where students and teachers could
@@ -120,7 +121,7 @@ const Purpose = () => {
               </div>
 
               <div className="space-y-3 fade-in">
-                <p className="text-gray-700 leading-relaxed text-xl max-w-lg">
+                <p className={cn(commonClasses.body, "text-gray-700 max-w-lg")}>
                   Join us in creating classrooms where learning thrives and
                   students reach their full potential.
                 </p>
@@ -130,7 +131,12 @@ const Purpose = () => {
                 <a href="/contact-us">
                   <button
                     ref={buttonRef}
-                    className="cursor-pointer bg-black rounded-full px-8 py-4 text-lg md:text-xl text-white font-medium flex items-center button-animation"
+                    className={cn(
+                      commonClasses.button.base,
+                      commonClasses.button.primary,
+                      commonClasses.button.sizes.lg,
+                      "rounded-full button-animation"
+                    )}
                   >
                     Get in Touch <ArrowRight className="ml-3 h-5 w-5" />
                   </button>

@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Mountain from "@/components/Mountain";
+import { motion } from "framer-motion";
+import { cn, commonClasses } from "@/lib/styles/utils";
 
 const Vision: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -15,7 +17,7 @@ const Vision: React.FC = () => {
 
     const handleScroll = () => {
       if (containerRef.current && !isMobile) {
-        setScrollY(window.scrollY);
+        setScrollY(window.scrollY - (containerRef.current.offsetTop || 0));
       }
     };
 
@@ -74,11 +76,32 @@ const Vision: React.FC = () => {
   const calculateCardTransforms = () => {
     if (isMobile) return [{}, {}, {}];
 
-    const scrollProgress = Math.min(scrollY / windowHeight, 1);
+    const mountainScrollProgress = Math.min(scrollY / windowHeight, 1);
+    const cardOpeningProgress = Math.min(mountainScrollProgress * 4, 1);
+
+    const initialStackTranslateX = 0;
+    const finalIcebergTranslateX = 30; 
+    const finalIcebergRotateY = 15;   
+
+    const card1InitialX = -initialStackTranslateX;
+    const card1FinalX = -finalIcebergTranslateX;
+    const card1FinalRotateY = finalIcebergRotateY;
+    const card1TranslateX = card1InitialX * (1 - cardOpeningProgress) + card1FinalX * cardOpeningProgress;
+    const card1RotateY = card1FinalRotateY * cardOpeningProgress;
+
+    const card2TranslateX = 0;
+    const card2RotateY = 0;
+
+    const card3InitialX = initialStackTranslateX;
+    const card3FinalX = finalIcebergTranslateX;
+    const card3FinalRotateY = -finalIcebergRotateY;
+    const card3TranslateX = card3InitialX * (1 - cardOpeningProgress) + card3FinalX * cardOpeningProgress;
+    const card3RotateY = card3FinalRotateY * cardOpeningProgress;
+
     return [
-      { transform: `translateX(${-30 * scrollProgress}%)` },
-      { transform: `translateX(0)` },
-      { transform: `translateX(${30 * scrollProgress}%)` }
+      { transform: `translateX(${card1TranslateX}%) rotateY(${card1RotateY}deg)` },
+      { transform: `translateX(${card2TranslateX}%) rotateY(${card2RotateY}deg)` },
+      { transform: `translateX(${card3TranslateX}%) rotateY(${card3RotateY}deg)` }
     ];
   };
 
@@ -92,112 +115,80 @@ const Vision: React.FC = () => {
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 px-4 overflow-y-auto">
           <div
             ref={textContentRef}
-            className={`relative text-center max-w-6xl mx-auto py-8 sm:py-0 transition-opacity duration-1000 ease-in-out ${
+            className={cn(
+              commonClasses.container,
+              "relative text-center py-8 sm:py-0 transition-opacity duration-1000 ease-in-out",
               isVisible ? "opacity-100" : "opacity-0"
-            }`}
+            )}
           >
             {/* Header and Subheader */}
-            <h1 className="font-display text-h2 font-bold mb-4 tracking-tight text-black">
-              Phones do not belong in the classrooms.
-              <span className="block italic font-body font-medium text-black mt-2 text-h3">
-                But banning them is not the solution.
-              </span>
-            </h1>
+            <div className="mb-12 text-center">
+              <h1 className={cn(commonClasses.h1, "text-black mb-4")}>
+                Phones do not belong in the classrooms.
+                <span className={cn(commonClasses.h3, "block italic font-medium text-black mt-2")}>
+                  But banning them is not the solution.
+                </span>
+              </h1>
+            </div>
 
             {/* Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-12 relative">
-              {/* Card 1 */}
-              <div 
-                className="bg-white shadow-lg rounded-xl overflow-hidden transition-all duration-700"
-                style={cardTransforms[0]}
-              >
-                {/* Image Section */}
-                <div className="relative p-4 m-4 rounded-xl border border-gray-100">
-                  <div className="aspect-w-16 aspect-h-9">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+              {[
+                {
+                  title: "Phones do not belong in the classrooms",
+                  description: "72% of all school teachers say cell phone distraction is a major issue in the classroom",
+                  image: "/iceberg1.png",
+                  alt: "Classroom"
+                },
+                {
+                  title: "But, banning them is not enough",
+                  description: "Phones not only act as critical communication devices to parent for student safety but also aid in accelerated learning",
+                  image: "/iceberg2.png",
+                  alt: "Teacher"
+                },
+                {
+                  title: "Schools around the world are taking action",
+                  description: "Responsible phone usage policies can enable growth in increasingly digital environments while ensuring distraction-free learning",
+                  image: "/iceberg1.png",
+                  alt: "Student"
+                }
+              ].map((card, index) => (
+                <div 
+                  key={index}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-700"
+                  style={cardTransforms[index]}
+                >
+                  {/* Image with overlay */}
+                  <div className="relative aspect-w-16 aspect-h-9">
                     <img
-                      src="/iceberg1.png"
-                      alt="Classroom"
-                      className="object-cover w-full h-full rounded-lg"
+                      src={card.image}
+                      alt={card.alt}
+                      className="object-cover w-full h-full"
                     />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                      <h3 className={cn(commonClasses.h3, "text-white mb-2 text-left")}>
+                        {card.title}
+                      </h3>
+                    </div>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                    <h3 className="text-white text-h3 font-display font-semibold text-left">
-                      Phones do not belong in the classrooms
-                    </h3>
-                  </div>
-                </div>
-                {/* Text Section */}
-                <div className="p-6 m-4 rounded-xl border border-gray-100">
-                  <p className="text-black text-body font-body text-left">
-                    72% of all school teachers say cell phone distraction is a major issue in the classroom
-                  </p>
-                </div>
-              </div>
-
-              {/* Card 2 */}
-              <div 
-                className="bg-white shadow-lg rounded-xl overflow-hidden transition-all duration-700"
-                style={cardTransforms[1]}
-              >
-                {/* Image Section */}
-                <div className="relative p-4 m-4 rounded-xl border border-gray-100">
-                  <div className="aspect-w-16 aspect-h-9">
-                    <img
-                      src="/iceberg2.png"
-                      alt="Teacher"
-                      className="object-cover w-full h-full rounded-lg"
-                    />
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                    <h3 className="text-white text-h3 font-display font-semibold text-left">
-                      But, banning them is not enough
-                    </h3>
+                  {/* Description */}
+                  <div className="p-6">
+                    <p className={cn(commonClasses.body, "text-gray-700 text-left")}>
+                      {card.description}
+                    </p>
                   </div>
                 </div>
-                {/* Text Section */}
-                <div className="p-6 m-4 rounded-xl border border-gray-100">
-                  <p className="text-black text-body font-body text-left">
-                    Phones not only act as critical communication devices to parent for student safety but also aid in accelerated learning
-                  </p>
-                </div>
-              </div>
-
-              {/* Card 3 */}
-              <div 
-                className="bg-white shadow-lg rounded-xl overflow-hidden transition-all duration-700"
-                style={cardTransforms[2]}
-              >
-                {/* Image Section */}
-                <div className="relative p-4 m-4 rounded-xl border border-gray-100">
-                  <div className="aspect-w-16 aspect-h-9">
-                    <img
-                      src="/iceberg1.png"
-                      alt="Student"
-                      className="object-cover w-full h-full rounded-lg"
-                    />
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                    <h3 className="text-white text-h3 font-display font-semibold text-left">
-                      Schools around the world are taking action
-                    </h3>
-                  </div>
-                </div>
-                {/* Text Section */}
-                <div className="p-6 m-4 rounded-xl border border-gray-100">
-                  <p className="text-black text-body font-body text-left">
-                    Responsible phone usage policies can enable growth in increasingly digital environments while ensuring distraction-free learning
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Mountains container with 3D perspective */}
         <div
-          className={`mountain-container ${
-            !isMobile ? "perspective preserve-3d" : ""
-          }`}
+          className={cn(
+            "mountain-container",
+            !isMobile && "perspective preserve-3d"
+          )}
         >
           {/* Left mountain */}
           <Mountain

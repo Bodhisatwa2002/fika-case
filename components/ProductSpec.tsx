@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import ColourfulText from "./ui/colourful-text";
+import { cn, commonClasses } from "@/lib/styles/utils";
 
 const ProductSpec: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -82,7 +83,7 @@ const ProductSpec: React.FC = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="relative min-h-screen">
+    <div ref={sectionRef} className={cn(commonClasses.section, "relative min-h-screen")}>
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
         <img
@@ -95,52 +96,62 @@ const ProductSpec: React.FC = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 h-full">
-        <div className="grid grid-cols-1 md:grid-cols-5 min-h-screen">
-          {/* Left side - Dummy div */}
-          <div className="hidden md:block md:col-span-2 w-full h-full"></div>
+      <div className="relative h-full">
+        <div className="grid grid-cols-1 md:grid-cols-20 min-h-screen">
+          {/* Left side - Takes up 35% */}
+          <div className="hidden md:block md:col-span-7 w-full h-full"></div>
 
-          {/* Right side - Content */}
-          <div className="flex flex-col justify-start pt-20 md:col-span-3">
-            {/* Heading */}
-            <div
-              className={`transition-all duration-1000 ease-in-out ${isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-              }`}
-              style={{ transitionDelay: "200ms" }}
-            >
-              <h1 className="font-display text-h1 font-bold text-white mb-12 leading-tight">
-                An Educator's ally, the 
-                <img
-                  src="logoOrange.png"
-                  alt="FikaCASE Logo"
-                  className="inline h-[1.2em] mx-3 align-middle translate-y-[-8px]"
-                />
-                provides a simple, yet powerful solution
-              </h1>
-            </div>
-
-            {/* Cards */}
-            <div
-              className={`transition-all duration-1000 ease-in-out ${isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-              }`}
-              style={{ transitionDelay: "400ms" }}
-            >
-              <div
-                ref={containerRef}
-                className="mt-40 min-h-[400px] sm:min-h-[450px] md:min-h-[500px] w-full"
-              >
-                <div className="h-full rounded-md flex flex-col antialiased bg-white/10 items-center justify-center relative overflow-hidden">
-                  <InfiniteMovingCards
-                    items={testimonials}
-                    direction="left"
-                    speed="normal"
-                  />
+          {/* Right side - Content takes up 65% */}
+          <div className="flex flex-col h-screen pt-0 md:col-span-13">
+            {/* Content wrapper with 3-row grid */}
+            <div className="grid gap-24 h-full" style={{ gridTemplateRows: '30% 45% 25%' }}>
+              {/* Header - Bottom of first row */}
+              <div className="flex items-end">
+                <div
+                  className={cn(
+                    "transition-all duration-1000 ease-in-out",
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  )}
+                  style={{ transitionDelay: "200ms" }}
+                >
+                  <h1 className={cn(commonClasses.h1, "text-white mb-0 leading-tight")}>
+                    An Educator's ally, the 
+                    <img
+                      src="logoOrange.png"
+                      alt="FikaCASE Logo"
+                      className="inline h-[1.2em] mx-3 align-middle translate-y-[-8px]"
+                    />
+                    provides a simple, yet powerful solution
+                  </h1>
                 </div>
               </div>
+
+              {/* Second row with cards at bottom */}
+              <div className="flex items-end">
+                <div
+                  className={cn(
+                    "transition-all duration-1000 ease-in-out w-full",
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  )}
+                  style={{ transitionDelay: "400ms" }}
+                >
+                  <div
+                    ref={containerRef}
+                    className="min-h-[400px] sm:min-h-[450px] md:min-h-[500px] w-full"
+                  >
+                    <div className="h-full rounded-md flex flex-col antialiased bg-white/10 items-center justify-center relative overflow-hidden">
+                      <InfiniteMovingCards
+                        items={testimonials}
+                        direction="left"
+                        speed="normal"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Empty third row */}
+              <div></div>
             </div>
           </div>
         </div>
