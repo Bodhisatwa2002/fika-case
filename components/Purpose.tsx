@@ -87,14 +87,14 @@ const Purpose = () => {
       <div className="vector-container">
         {/* Left vector */}
         <img
-          src="/vectorS.svg"
+          src="/VectorS.svg"
           alt="Left background vector"
           className="left-vector"
         />
 
         {/* Right vector */}
         <img
-          src="/vectorE.svg"
+          src="/VectorE.svg"
           alt="Right background vector"
           className="right-vector"
         />
