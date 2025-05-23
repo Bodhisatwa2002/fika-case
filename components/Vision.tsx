@@ -108,9 +108,11 @@ const Vision: React.FC = () => {
   const cardTransforms = calculateCardTransforms();
 
   return (
-    <div ref={containerRef} className="parallax-content relative h-full">
+    <div
+      ref={containerRef}
+      className="parallax-content relative h-full mt-12 mb-12"
+    >
       <div className="sticky top-0 h-screen w-full perspective overflow-hidden">
-        
         {/* Hero content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 px-4 overflow-y-auto">
           <div
@@ -125,7 +127,12 @@ const Vision: React.FC = () => {
             <div className="mb-12 text-center">
               <h1 className={cn(commonClasses.h1, "text-black mb-4")}>
                 Phones do not belong in the classrooms.
-                <span className={cn(commonClasses.h3, "block italic font-medium text-black mt-2")}>
+                <span
+                  className={cn(
+                    commonClasses.h3,
+                    "block italic font-medium text-black mt-2"
+                  )}
+                >
                   But banning them is not the solution.
                 </span>
               </h1>
@@ -136,24 +143,27 @@ const Vision: React.FC = () => {
               {[
                 {
                   title: "Phones do not belong in the classrooms",
-                  description: "72% of all school teachers say cell phone distraction is a major issue in the classroom",
-                  image: "/iceberg1.png",
-                  alt: "Classroom"
+                  description:
+                    "72% of all school teachers say cell phone distraction is a major issue in the classroom",
+                  image: "/rectangle5.svg",
+                  alt: "Classroom",
                 },
                 {
                   title: "But, banning them is not enough",
-                  description: "Phones not only act as critical communication devices to parent for student safety but also aid in accelerated learning",
-                  image: "/iceberg2.png",
-                  alt: "Teacher"
+                  description:
+                    "Phones not only act as critical communication devices to parent for student safety but also aid in accelerated learning",
+                  image: "/rectangle6.svg",
+                  alt: "Teacher",
                 },
                 {
                   title: "Schools around the world are taking action",
-                  description: "Responsible phone usage policies can enable growth in increasingly digital environments while ensuring distraction-free learning",
-                  image: "/iceberg1.png",
-                  alt: "Student"
-                }
+                  description:
+                    "Responsible phone usage policies can enable growth in increasingly digital environments while ensuring distraction-free learning",
+                  image: "/rectangle7.svg",
+                  alt: "Student",
+                },
               ].map((card, index) => (
-                <div 
+                <div
                   key={index}
                   className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-700"
                   style={cardTransforms[index]}
@@ -166,14 +176,24 @@ const Vision: React.FC = () => {
                       className="object-cover w-full h-full"
                     />
                     <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                      <h3 className={cn(commonClasses.h3, "text-white mb-2 text-left")}>
+                      <h3
+                        className={cn(
+                          commonClasses.h3,
+                          "text-white mb-2 text-left"
+                        )}
+                      >
                         {card.title}
                       </h3>
                     </div>
                   </div>
                   {/* Description */}
                   <div className="p-6">
-                    <p className={cn(commonClasses.body, "text-gray-700 text-left")}>
+                    <p
+                      className={cn(
+                        commonClasses.body,
+                        "text-gray-700 text-left"
+                      )}
+                    >
                       {card.description}
                     </p>
                   </div>
@@ -193,14 +213,14 @@ const Vision: React.FC = () => {
           {/* Left mountain */}
           <Mountain
             side="left"
-            imgSrc="/iceberg1.png"
+            imgSrc="/left.svg"
             style={calculateLeftTransform()}
           />
 
           {/* Right mountain */}
           <Mountain
             side="right"
-            imgSrc="/iceberg2.png"
+            imgSrc="/right.svg"
             style={calculateRightTransform()}
           />
         </div>

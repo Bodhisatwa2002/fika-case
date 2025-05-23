@@ -30,7 +30,7 @@ const AboutUs: React.FC = () => {
           <div className="max-w-3xl">
             <div className="mb-5 font-bold text-white tracking-wide">
               <img src="/logo.png" alt="Logo" className="h-12 w-auto mb-2" />
-              <span className="text-5xl block">/ˈfēkə/</span>
+              <span className="text-2xl block">/ˈfēkə/</span>
             </div>
 
             <h2 className="text-2xl md:text-3xl lg:text-4xl text-white mb-8 leading-tight tracking-normal max-w-3xl text-left ">

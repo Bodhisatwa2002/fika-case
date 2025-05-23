@@ -79,130 +79,193 @@ export default function ContactUsSection() {
         <meta name="author" content="Your Company Name" />
       </Head>
 
-      <section className={cn(commonClasses.section, "bg-white text-gray-900 py-24 mt-20")}>
-        <div className={cn(commonClasses.container)}>
-          <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-24">
-            <div className="flex items-center lg:mb-0 mb-10">
-              <div className="w-full">
-                <h2 className={cn(commonClasses.h2, "font-semibold leading-10 mb-9 lg:text-left text-center")}>
-                  Have questions? Want to share your thoughts? Talk to us
-                </h2>
+      <div className="relative">
+        {/* Add a style block for vector positioning */}
+        <style jsx global>{`
+          .vector-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+          }
+          .bottom-right-vector {
+            position: absolute;
+            bottom: 0;
+            right: 20px;
+            height: 200px;
+            z-index: 0;
+          }
+        `}</style>
 
-                {submitted ? (
-                  <div className={cn(commonClasses.body, "text-green-600 font-semibold")}>
-                    Thank you for reaching out! We'll get back to you soon.
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit}>
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="Name (First and Last)"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      className={inputClasses}
-                    />
+        {/* Background vector in a separate container */}
+        <div className="vector-container">
+          {/* Bottom right vector */}
+          <img
+            src="/VectorFika.svg"
+            alt="Bottom right background vector"
+            className="bottom-right-vector"
+          />
+        </div>
 
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="Email Address (Required)"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className={inputClasses}
-                    />
+        {/* Content section with relative positioning to stay above vector */}
+        <section
+          className={cn(
+            commonClasses.section,
+            "bg-transparent text-gray-900 py-24 mt-20 relative z-10"
+          )}
+        >
+          <div className={cn(commonClasses.container)}>
+            <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-24">
+              <div className="flex items-center lg:mb-0 mb-10">
+                <div className="w-full">
+                  <h2
+                    className={cn(
+                      commonClasses.h2,
+                      "font-semibold leading-10 mb-9 lg:text-left text-center"
+                    )}
+                  >
+                    Have questions? Want to share your thoughts? Talk to us
+                  </h2>
 
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      placeholder="Phone Number (Required)"
-                      required
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className={inputClasses}
-                    />
-
-                    <input
-                      id="organization"
-                      name="organization"
-                      type="text"
-                      placeholder="School/Organization Name (Optional)"
-                      value={formData.organization}
-                      onChange={handleChange}
-                      className={inputClasses}
-                    />
-
-                    <input
-                      id="role"
-                      name="role"
-                      type="text"
-                      placeholder="Your Role (Required)"
-                      required
-                      value={formData.role}
-                      onChange={handleChange}
-                      className={inputClasses}
-                    />
-
-                    <textarea
-                      id="message"
-                      name="message"
-                      placeholder="Message/Questions"
-                      value={formData.message}
-                      onChange={handleChange}
+                  {submitted ? (
+                    <div
                       className={cn(
-                        inputClasses,
-                        "h-48 resize-none rounded-2xl"
-                      )}
-                    />
-
-                    <button
-                      type="submit"
-                      className={cn(
-                        commonClasses.button.base,
-                        commonClasses.button.primary,
-                        commonClasses.button.sizes.lg,
-                        "w-4/5"
+                        commonClasses.body,
+                        "text-green-600 font-semibold"
                       )}
                     >
-                      Submit
-                    </button>
-                  </form>
-                )}
-              </div>
-            </div>
+                      Thank you for reaching out! We'll get back to you soon.
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit}>
+                      <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder="Name (First and Last)"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        className={inputClasses}
+                      />
 
-            {/* Right Section */}
-            <div className={cn(commonClasses.card.base, "lg:max-w-xl w-full h-[600px] flex items-center justify-center p-8")}>
-              <div className={cn(
-                commonClasses.card.base,
-                "w-full max-w-md p-8"
-              )}>
-                <div className="flex items-center justify-center mb-6">
-                  <a href="/">
-                    <img
-                      src="logoblack.png"
-                      alt="Logo"
-                      className="h-20 w-auto"
-                    />
-                  </a>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="Email Address (Required)"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        className={inputClasses}
+                      />
+
+                      <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="Phone Number (Required)"
+                        required
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className={inputClasses}
+                      />
+
+                      <input
+                        id="organization"
+                        name="organization"
+                        type="text"
+                        placeholder="School/Organization Name (Optional)"
+                        value={formData.organization}
+                        onChange={handleChange}
+                        className={inputClasses}
+                      />
+
+                      <input
+                        id="role"
+                        name="role"
+                        type="text"
+                        placeholder="Your Role (Required)"
+                        required
+                        value={formData.role}
+                        onChange={handleChange}
+                        className={inputClasses}
+                      />
+
+                      <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Message/Questions"
+                        value={formData.message}
+                        onChange={handleChange}
+                        className={cn(
+                          inputClasses,
+                          "h-48 resize-none rounded-2xl"
+                        )}
+                      />
+
+                      <button
+                        type="submit"
+                        className={cn(
+                          commonClasses.button.base,
+                          commonClasses.button.primary,
+                          commonClasses.button.sizes.lg,
+                          "w-4/5"
+                        )}
+                      >
+                        Submit
+                      </button>
+                    </form>
+                  )}
                 </div>
-                <h3 className={cn(commonClasses.h3, "font-semibold text-center mb-6")}>
-                  Join Our Community
-                </h3>
-                <p className={cn(commonClasses.body, "text-gray-600 text-center mb-8")}>
-                  Join a community of educators dedicated to focused learning.
-                  Share your information, and let's explore Fika together.
-                </p>
+              </div>
+
+              {/* Right Section */}
+              <div
+                className={cn(
+                  commonClasses.card.base,
+                  "lg:max-w-xl w-full h-[600px] flex items-center justify-center p-8"
+                )}
+              >
+                <div
+                  className={cn(commonClasses.card.base, "w-full max-w-md p-8")}
+                >
+                  <div className="flex items-center justify-center mb-6">
+                    <a href="/">
+                      <img
+                        src="logoblack.png"
+                        alt="Logo"
+                        className="h-20 w-auto"
+                      />
+                    </a>
+                  </div>
+                  <h3
+                    className={cn(
+                      commonClasses.h3,
+                      "font-semibold text-center mb-6"
+                    )}
+                  >
+                    Join Our Community
+                  </h3>
+                  <p
+                    className={cn(
+                      commonClasses.body,
+                      "text-gray-600 text-center mb-8"
+                    )}
+                  >
+                    Join a community of educators dedicated to focused learning.
+                    Share your information, and let's explore Fika together.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   );
 }

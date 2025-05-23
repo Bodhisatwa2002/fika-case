@@ -1,4 +1,5 @@
 // why-it-matters.tsx
+'use client'
 import React from "react";
 import Link from "next/link";
 import { cn, commonClasses } from "@/lib/styles/utils";
@@ -49,45 +50,119 @@ const WhyItMattersComponent: React.FC = () => {
   ];
 
   return (
-    <section className={cn(commonClasses.section, "bg-white text-gray-900 py-16")}>
-      <div className={cn(commonClasses.container, "max-w-4xl")}>
-        <div className="mb-16 mt-10">
-          <h1 className={cn(commonClasses.h1, "mb-6 text-center tracking-tight")}>
-            Why It Matters
-          </h1>
-          <div className="h-1 w-32 mx-auto mb-10 rounded-full bg-primary"></div>
-          <p className={cn(commonClasses.body, "text-gray-600 text-center max-w-3xl mx-auto")}>
-            Research findings highlighting the impact of mobile phones and social media on education and student wellbeing.
-          </p>
-        </div>
+    <div className="relative">
+      {/* Add a style block for vector positioning */}
+      <style jsx global>{`
+        .vector-container {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          z-index: 0;
+          pointer-events: none;
+        }
+        .left-vector {
+          position: absolute;
+          left: 0;
+          top: 200px;
+          height: 80vh;
+          z-index: 0;
+        }
+        .right-vector {
+          position: absolute;
+          right: 0;
+          bottom: 0px;
+          height: 80vh;
+          z-index: 0;
+        }
+      `}</style>
 
-        <div className="space-y-10">
-          {researchArticles.map((article, index) => (
-            <div
-              key={index}
+      {/* Background vectors in a separate container */}
+      <div className="vector-container">
+        {/* Left vector */}
+        <img
+          src="/VectorC.svg"
+          alt="Left background vector"
+          className="left-vector"
+        />
+
+        {/* Right vector */}
+        <img
+          src="/VectorA.svg"
+          alt="Right background vector"
+          className="right-vector"
+        />
+      </div>
+
+      {/* Content section with relative positioning to stay above vectors */}
+      <section
+        className={cn(
+          commonClasses.section,
+          "bg-transparent text-gray-900 py-16 relative z-10"
+        )}
+      >
+        <div className={cn(commonClasses.container, "max-w-4xl")}>
+          <div className="mb-16 mt-10">
+            <h1
               className={cn(
-                commonClasses.card.base,
-                "border-l-4 border-primary px-8 py-7 transition-transform duration-200 hover:scale-[1.02]"
+                commonClasses.h1,
+                "mb-6 text-center tracking-tight"
               )}
             >
-              <Link
-                href={article.link}
-                className="block group"
-                target="_blank"
-                rel="noopener noreferrer"
+              Why It Matters
+            </h1>
+            <div className="h-1 w-32 mx-auto mb-10 rounded-full bg-primary"></div>
+            <p
+              className={cn(
+                commonClasses.body,
+                "text-gray-600 text-center max-w-3xl mx-auto"
+              )}
+            >
+              Research findings highlighting the impact of mobile phones and
+              social media on education and student wellbeing.
+            </p>
+          </div>
+
+          <div className="space-y-10">
+            {researchArticles.map((article, index) => (
+              <div
+                key={index}
+                className={cn(
+                  commonClasses.card.base,
+                  "border-l-4 border-primary px-8 py-7 transition-transform duration-200 hover:scale-[1.02]"
+                )}
               >
-                <h2 className={cn(commonClasses.h3, "font-medium mb-2 text-gray-700 orange-gradient-hover transition-colors")}>
-                  {article.title}
-                </h2>
-                <p className={cn(commonClasses.body, "text-gray-500 font-medium")}>
-                  {article.source}
-                </p>
-              </Link>
-            </div>
-          ))}
+                <Link
+                  href={article.link}
+                  className="block group"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <h2
+                    className={cn(
+                      commonClasses.h3,
+                      "font-medium mb-2 text-gray-700 orange-gradient-hover transition-colors"
+                    )}
+                  >
+                    {article.title}
+                  </h2>
+                  <p
+                    className={cn(
+                      commonClasses.body,
+                      "text-gray-500 font-medium"
+                    )}
+                  >
+                    {article.source}
+                  </p>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

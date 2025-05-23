@@ -11,8 +11,7 @@ const processSteps = [
     title: "Phone Placement",
     description:
       "Upon entering the phone-free zone, your phone will be placed inside your Fika case",
-    image:
-      "https://images.unsplash.com/photo-1533994966954-5a39c74889a4?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/step1.svg",
     alt: "Phone placement in Fika case",
   },
   {
@@ -20,8 +19,7 @@ const processSteps = [
     title: "Secure Locking ",
     description:
       "Once inside the phone-free zone, the case is locked. You will always maintain possession of your phone. ",
-    image:
-      "https://images.unsplash.com/photo-1533994966954-5a39c74889a4?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/step2.svg",
     alt: "Secure case locking",
   },
   {
@@ -29,8 +27,7 @@ const processSteps = [
     title: "Unlocking & Returns",
     description:
       "To use your phone at any time, step outside the phone-free zone and tap your case on an Fika unlocking base",
-    image:
-      "https://images.unsplash.com/photo-1533994966954-5a39c74889a4?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/step3.svg",
     alt: "Unlocking the Fika case",
   },
 ];
@@ -45,17 +42,34 @@ const timelineData = processSteps.map((step) => ({
 
 export function HowItWorksComponent() {
   return (
-    <section className={cn(commonClasses.section, "mt-20 pb-24 pt-32 md:pb-32 md:pt-40 border-b border-[#333333] overflow-hidden")}>
+    <section
+      className={cn(
+        commonClasses.section,
+        "mt-10 sm:mt-14 md:mt-20 pb-16 sm:pb-20 md:pb-24 pt-16 sm:pt-24 md:pt-32 border-b border-[rgb(51,51,51)] overflow-hidden"
+      )}
+    >
       <div className={cn(commonClasses.container, "px-4 md:px-8 lg:px-12")}>
-        <div className="mb-16 md:mb-32">
-          <h1 className={cn(commonClasses.h1, "text-black mb-8")}>
+        <div className="mb-8 sm:mb-12 md:mb-16 lg:mb-32">
+          <h1
+            className={cn(
+              commonClasses.h1,
+              "text-black mb-4 sm:mb-6 md:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+            )}
+          >
             <span className="font-light">
               <img
                 src="logoOrange.png"
                 alt="Fika Orange Logo"
-                className="inline h-[1.2em] mx-3 align-middle translate-y-[-8px]"
+                className="inline h-[1em] sm:h-[1.1em] md:h-[1.2em] mx-2 sm:mx-3 align-middle translate-y-[-4px] sm:translate-y-[-6px] md:translate-y-[-8px]"
               />
-              <span className={cn(commonClasses.gradient.orange, commonClasses.gradient.text)}>Case</span>
+              <span
+                className={cn(
+                  commonClasses.gradient.orange,
+                  commonClasses.gradient.text
+                )}
+              >
+                Case
+              </span>
             </span>{" "}
             in Action
           </h1>
