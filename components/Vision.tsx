@@ -145,21 +145,21 @@ const Vision: React.FC = () => {
                   title: "Phones do not belong in the classrooms",
                   description:
                     "72% of all school teachers say cell phone distraction is a major issue in the classroom",
-                  image: "/rectangle5.svg",
+                  image: "/Rectangle5.svg",
                   alt: "Classroom",
                 },
                 {
                   title: "But, banning them is not enough",
                   description:
                     "Phones not only act as critical communication devices to parent for student safety but also aid in accelerated learning",
-                  image: "/rectangle6.svg",
+                  image: "/Rectangle6.svg",
                   alt: "Teacher",
                 },
                 {
                   title: "Schools around the world are taking action",
                   description:
                     "Responsible phone usage policies can enable growth in increasingly digital environments while ensuring distraction-free learning",
-                  image: "/rectangle7.svg",
+                  image: "/Rectangle7.svg",
                   alt: "Student",
                 },
               ].map((card, index) => (

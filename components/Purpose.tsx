@@ -144,7 +144,7 @@ const Purpose = () => {
                 )}
               >
                 <img
-                  src="/container.svg"
+                  src="/Container.svg"
                   alt="Team members working on a project"
                   className="w-full h-auto object-cover"
                 />
@@ -171,7 +171,7 @@ const Purpose = () => {
                   )}
                 >
                   <img
-                    src="/container1.svg"
+                    src="/Container1.svg"
                     alt="Creative collaboration"
                     className="w-full h-auto object-cover"
                   />
